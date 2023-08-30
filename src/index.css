@@ -56,10 +56,7 @@ section {
 
 .btn:hover {
   background-color: var(--green-600) !important;
-}
-
-.btn-link button:hover {
-  color: white !important;
+  color: #fff;
 }
 
 a {

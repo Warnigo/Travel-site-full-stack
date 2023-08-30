@@ -1,14 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { request } from "../../server/server";
-import { Spin } from "antd"; // Ant Design kutubxonasidan Spin komponentini chaqirish
+import { Spin } from "antd";
 import "../style/country.css";
+
+import dp from "../../assets/images/other/austria.jpg";
+import dp1 from "../../assets/images/other/burch-alarab.jpg";
+import dp2 from "../../assets/images/other/china-b.jpg";
+import dp3 from "../../assets/images/other/geogria.jpg";
+import dp4 from "../../assets/images/other/Italy.jpg";
+import dp5 from "../../assets/images/other/london.jpg";
+import dp6 from "../../assets/images/istanbull.jpg";
 
 const Country = () => {
   const { id } = useParams();
   const [countryData, setCountryData] = useState(null);
-  const [showImgSrc, setShowImgSrc] = useState(""); // Boshlang'ich bo'sh
-  const [isLoading, setIsLoading] = useState(true); // Yangi isLoading holatini qo'shish
+  const [showImgSrc, setShowImgSrc] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+  
 
   useEffect(() => {
     request
@@ -16,13 +25,13 @@ const Country = () => {
       .then((response) => {
         setCountryData(response.data[0]);
         if (response.data[0].img) {
-          setShowImgSrc(response.data[0].img); // Birinchi rasmni beramiz
+          setShowImgSrc(response.data[0].img);
         }
-        setIsLoading(false); // Ma'lumot olinganligini bildiramiz
+        setIsLoading(false);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
-        setIsLoading(false); // Ma'lumot olmasligini bildiramiz
+        setIsLoading(false);
       });
   }, [id]);
 
@@ -34,11 +43,12 @@ const Country = () => {
 
   return (
     <div className="container">
-      {isLoading ? (
+      {isLoading && (
         <div className="loading">
           <Spin size="large" />
         </div>
-      ) : countryData ? (
+      )}
+      {countryData ? (
         <div>
           <h2 className="country-name">{countryData.name}</h2>
           <div id="show">

@@ -1,3 +1,10 @@
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 #show {
   text-align: center;
 }
@@ -29,6 +36,7 @@
 .country-img-div img {
   display: flex;
   width: 100%;
+  cursor: pointer;
 }
 
 .country-name {
@@ -72,12 +80,7 @@
   background-color: var(--green-600) !important;
 }
 
-.loading {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
+
 
 @media (max-width: 991px) {
   #show img {
@@ -86,7 +89,8 @@
   .country-img-div {
     gap: 15px;
   }
-  .country-description-div, .country-price-div {
+  .country-description-div,
+  .country-price-div {
     text-align: center !important;
   }
 }

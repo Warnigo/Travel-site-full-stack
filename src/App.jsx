@@ -8,6 +8,7 @@ import Contact from "./pages/user/Contact";
 import Country from "./pages/user/Country";
 import Offer from "./pages/user/offer";
 import Payment from "./pages/user/payment";
+import Connect from "./pages/user/Connect";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="offer" element={<Offer />} />
           <Route path="pay" element={<Payment />} />
           <Route path="country/:id/country-about" element={<Country />} />
+          <Route path="connect" element={<Connect />} />
         </Route>
         <Route path="*" element={<NotFoundP />} />
       </Routes>

@@ -103,16 +103,16 @@ const HomeP = () => {
     );
     setFilteredCountries(filtered);
   }, [searchText, countries]);
-  
-    // telegram client for contact button start
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [phoneNumber, setPhoneNumber] = useState('');
-    const [email, setEmail] = useState('');
-    const [comment, setComment] = useState('');
-  
-    const sendToTelegram = () => {
-      const message = `
+
+  // telegram client for contact button start
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [email, setEmail] = useState("");
+  const [comment, setComment] = useState("");
+
+  const sendToTelegram = () => {
+    const message = `
         New Contact Information:
         First Name: ${firstName}
         Last Name: ${lastName}
@@ -120,26 +120,28 @@ const HomeP = () => {
         Email: ${email}
         Comment: ${comment}
       `;
-  
-      const chatId = '2093505929';
-      const botToken = '6411651569:AAEjeDhJkjK0IeDNYFVWnBqpUyA9BF4FbYs';
-  
-      const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
-  
-      fetch(url)
-        .then(response => response.json())
-        .then(data => {
-          if (data.ok) {
-            alert('Message sent! We will contact you soon.');
-          } else {
-            alert('There was an error sending the message. Please try again.');
-          }
-        })
-        .catch(error => {
-          alert('There was an error sending the message. Please try again.');
-        });
-    };
-    // telegram client for contact button end
+
+    const chatId = "2093505929";
+    const botToken = "6411651569:AAEjeDhJkjK0IeDNYFVWnBqpUyA9BF4FbYs";
+
+    const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(
+      message
+    )}`;
+
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.ok) {
+          alert("Message sent! We will contact you soon.");
+        } else {
+          alert("There was an error sending the message. Please try again.");
+        }
+      })
+      .catch((error) => {
+        alert("There was an error sending the message. Please try again.");
+      });
+  };
+  // telegram client for contact button end
 
   return (
     <Fragment>
@@ -164,17 +166,24 @@ const HomeP = () => {
                   type="text"
                   placeholder="Search for your adventure..."
                   value={searchText}
-                  onChange={(e) => setSearchText(e.target.value)}
+                  onChange={(e) => {
+                    const newValue = e.target.value;
+                    setSearchText(newValue);
+                    localStorage.setItem("searchText", newValue);
+                  }}
                 />
                 <div className="dropdown">
-                  <button type="submit" className="btn">
-                    <i className="ri-search-line"></i> Search
-                  </button>
+                  <Link to={"/packages"}>
+                    <button type="submit" className="btn">
+                      <i className="ri-search-line"></i> Search
+                    </button>
+                  </Link>
                 </div>
               </form>
               <div
-                className={`dropdown-content ${searchText.length > 0 ? "active" : ""
-                  }`}
+                className={`dropdown-content ${
+                  searchText.length > 0 ? "active" : ""
+                }`}
               >
                 {searchText.length > 0 &&
                   filteredCountries
@@ -186,9 +195,8 @@ const HomeP = () => {
                     .slice(0, 5)
                     .map((country) => (
                       <Link
-                        to={"/"}
                         className="dropdown-item"
-                        key={country.id}
+                        to={`/country/${country.id}/country-about`}
                       >
                         {country.name}
                       </Link>
@@ -423,19 +431,17 @@ const HomeP = () => {
                 className="about-img about-img-left"
               />
               <p className="about-p-right">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Facilis, quam enim officiis itaque, odit nesciunt ex quas ea
-                perferendis id architecto accusantium recusandae voluptatum
-                dolorem accusamus totam aliquam asperiores quisquam.
+                Through this site, you can travel to the times you want and
+                like. You can make all the necessary arrangements for your trip
+                through us. Even in the matter of visa
               </p>
               <hr className="about-hr" />
             </div>
             <div className="about-left">
               <p className="about-p-left">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Facilis, itaque. In, itaque. Iste nulla ipsam vero, nihil maxime
-                totam nemo, accusantium quam numquam exercitationem dolorum
-                dolor harum asperiores, nobis ex cupiditate!
+                Also, through VEGO-TRAVEL, you can use our services of airline
+                tickets, hotels, visas, ochrat issues and questionnaires. We are
+                happy to show you respect
               </p>
               <img
                 src={bg7}
@@ -450,19 +456,41 @@ const HomeP = () => {
         <div className="container">
           <h3>Fill in your information and we will contact you.</h3>
           <div className="input-contact">
-            <input type="text" placeholder="First name" onChange={e => setFirstName(e.target.value)} />
-            <input type="text" placeholder="Last name" onChange={e => setLastName(e.target.value)} />
-            <input type="text" placeholder="+998..." onChange={e => setPhoneNumber(e.target.value)} />
-            <input type="email" placeholder="Email" onChange={e => setEmail(e.target.value)} />
+            <input
+              type="text"
+              placeholder="First name"
+              onChange={(e) => setFirstName(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="Last name"
+              onChange={(e) => setLastName(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="+998..."
+              onChange={(e) => setPhoneNumber(e.target.value)}
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              onChange={(e) => setEmail(e.target.value)}
+            />
             <textarea
               name="textarea"
               id="textarea"
               cols="30"
               rows="5"
               placeholder="Comment (Optional)"
-              onChange={e => setComment(e.target.value)}
+              onChange={(e) => setComment(e.target.value)}
             ></textarea>
-            <button type="submit" className="contact-butom" onClick={sendToTelegram}>Send</button>
+            <button
+              type="submit"
+              className="contact-butom"
+              onClick={sendToTelegram}
+            >
+              Send
+            </button>
           </div>
         </div>
       </section>

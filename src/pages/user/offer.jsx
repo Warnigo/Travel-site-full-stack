@@ -1,3 +1,233 @@
+// import React, { useEffect, useState } from "react";
+// import { Link } from "react-router-dom";
+// import { request } from "../../server/server";
+// import "../style/offer.css";
+
+// function Offer() {
+//   const [countries, setCountries] = useState([]);
+//   const [isFormFilled, setIsFormFilled] = useState(false);
+
+//   const [firstName, setFirstName] = useState("");
+//   const [lastName, setLastName] = useState("");
+//   const [Patronymic, setPatronymic] = useState("");
+//   const [email, setEmail] = useState("");
+//   const [phoneNumber, setPhoneNumber] = useState("");
+//   const [Address, setAddress] = useState("");
+//   const [selectedCountry, setSelectedCountry] = useState("");
+//   const [countryPrices, setCountryPrices] = useState({});
+
+//   useEffect(() => {
+//     request
+//       .get("country")
+//       .then((response) => {
+//         setCountries(response.data);
+//         const price = {};
+//         response.data.forEach((country) => {
+//           price[country.name] = country.price;
+//         });
+//         setCountryPrices(price);
+//       })
+//       .catch((error) => {
+//         console.error("error api:", error);
+//       });
+//   }, []);
+
+//   useEffect(() => {
+//     checkFormCompletion();
+//   }, [
+//     countries,
+//     firstName,
+//     lastName,
+//     email,
+//     phoneNumber,
+//     Address,
+//     selectedCountry,
+//   ]);
+
+//   useEffect(() => {
+//     const storedData = localStorage.getItem("formInputs");
+//     if (storedData) {
+//       const parsedData = JSON.parse(storedData);
+//       setFirstName(parsedData.firstName);
+//       setLastName(parsedData.lastName);
+//       setPatronymic(parsedData.Patronymic);
+//       setEmail(parsedData.email);
+//       setPhoneNumber(parsedData.phoneNumber);
+//       setAddress(parsedData.Address);
+//       setSelectedCountry(parsedData.selectedCountry);
+//     }
+//   }, []);
+
+//   useEffect(() => {
+//     const formInputs = {
+//       firstName,
+//       lastName,
+//       Patronymic,
+//       email,
+//       phoneNumber,
+//       Address,
+//       selectedCountry,
+//     };
+//     localStorage.setItem("formInputs", JSON.stringify(formInputs));
+//   }, [
+//     firstName,
+//     lastName,
+//     Patronymic,
+//     email,
+//     phoneNumber,
+//     Address,
+//     selectedCountry,
+//   ]);
+
+//   const checkFormCompletion = () => {
+//     if (
+//       countries.length > 0 &&
+//       firstName !== "" &&
+//       lastName !== "" &&
+//       email !== "" &&
+//       phoneNumber !== "" &&
+//       /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) &&
+//       /^[+]?\d+(\s|\d)*$/.test(phoneNumber) &&
+//       Address !== "" &&
+//       selectedCountry !== ""
+//     ) {
+//       setIsFormFilled(true);
+//     } else {
+//       setIsFormFilled(false);
+//     }
+//   };
+
+//   const handlePersonChange = (event) => {
+//     const personCount = event.target.value;
+//     const basePrice = personCount * 2;
+//     const calculatedPrice = basePrice;
+//   };
+
+//   const handleCountryChange = (event) => {
+//     const selectedCountry = event.target.value;
+//     setSelectedCountry(selectedCountry);
+//   };
+
+//   const handleAddressChange = (event) => {
+//     const newAddress = event.target.value;
+//     setAddress(newAddress);
+//     checkFormCompletion();
+//   };
+
+//   const getPriceForSelectedCountry = () => {
+//     const price = countryPrices[selectedCountry];
+//     return price ? `$${price}` : "Price not available";
+//   };
+
+//   return (
+//     <div className="offer">
+//       <div className="container">
+//         <center>
+//           <h1 className="offer-h1">Select your travel country and travel</h1>
+//           <p className="center-p">Please enter the correct information</p>
+//         </center>
+//         <div className="offer-form">
+//           <div className="offer-select">
+//             <select
+//               name="country"
+//               id="country"
+//               onChange={handleCountryChange}
+//               value={selectedCountry}
+//             >
+//               <option value="">Select a country</option>
+//               {countries.map((country) => (
+//                 <option key={country.id} value={country.name}>
+//                   {country.name}
+//                 </option>
+//               ))}
+//             </select>
+//             <hr />
+//           </div>
+//           <p>
+//             Departure from <input type="date" onChange={checkFormCompletion} />
+//           </p>
+//           <p>
+//             Till <input type="date" onChange={checkFormCompletion} />
+//           </p>
+//           <hr />
+//           <p>
+//             Person{" "}
+//             <input
+//               type="number"
+//               min={"1"}
+//               placeholder="Ages 6 and up!"
+//               onChange={handlePersonChange}
+//             />
+//           </p>
+//           <hr />
+//           <input
+//             type="text"
+//             placeholder="First name"
+//             value={firstName}
+//             onChange={(e) => setFirstName(e.target.value)}
+//           />
+//           <input
+//             type="text"
+//             placeholder="Last name"
+//             value={lastName}
+//             onChange={(e) => setLastName(e.target.value)}
+//           />
+//           <input
+//             type="text"
+//             placeholder="Patronymic"
+//             value={Patronymic}
+//             onChange={(e) => setPatronymic(e.target.value)}
+//           />
+//           <input
+//             type="email"
+//             placeholder="Your email"
+//             value={email}
+//             onChange={(e) => setEmail(e.target.value)}
+//           />
+//           <input
+//             type="text"
+//             placeholder="Your phone +998..."
+//             value={phoneNumber}
+//             onChange={(e) => {
+//               const inputText = e.target.value;
+//               const sanitizedText = inputText.replace(/[^\d+ ]/g, "");
+//               setPhoneNumber(sanitizedText);
+//             }}
+//           />
+//           <hr />
+//           <input
+//             type="text"
+//             placeholder="Address"
+//             value={Address}
+//             onChange={handleAddressChange}
+//           />
+//           <div className="offer-tour-price">
+//             {isFormFilled && selectedCountry && (
+//               <h5>
+//                 Price for {selectedCountry}: {getPriceForSelectedCountry()}
+//               </h5>
+//             )}
+//           </div>
+
+//           <div className="offer-buttom">
+//             {isFormFilled ? (
+//               <Link to={"/connect"}>
+//                 <button className="offer-button">Buying now</button>
+//               </Link>
+//             ) : (
+//               <button className="offer-button" disabled>
+//                 Fill in the form first
+//               </button>
+//             )}
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default Offer;
+
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { request } from "../../server/server";
@@ -6,15 +236,17 @@ import "../style/offer.css";
 function Offer() {
   const [countries, setCountries] = useState([]);
   const [isFormFilled, setIsFormFilled] = useState(false);
-  const [tourPrice, setTourPrice] = useState(0);
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [Patronymic, setPatronymic] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [comment, setComment] = useState("");
+  const [Address, setAddress] = useState("");
   const [selectedCountry, setSelectedCountry] = useState("");
   const [countryPrices, setCountryPrices] = useState({});
+  const [departureDate, setDepartureDate] = useState("");
+  const [returnDate, setReturnDate] = useState("");
 
   useEffect(() => {
     request
@@ -33,14 +265,59 @@ function Offer() {
   }, []);
 
   useEffect(() => {
-    checkFormCompletion();
-  }, [countries, firstName, lastName, email, phoneNumber, selectedCountry]);
+    const storedData = localStorage.getItem("formInputs");
+    if (storedData) {
+      const parsedData = JSON.parse(storedData);
+      setFirstName(parsedData.firstName);
+      setLastName(parsedData.lastName);
+      setPatronymic(parsedData.Patronymic);
+      setEmail(parsedData.email);
+      setPhoneNumber(parsedData.phoneNumber);
+      setAddress(parsedData.Address);
+      setSelectedCountry(parsedData.selectedCountry);
+      setDepartureDate(parsedData.departureDate);
+      setReturnDate(parsedData.returnDate);
+    }
+  }, []);
 
   useEffect(() => {
-    if (selectedCountry && countryPrices[selectedCountry]) {
-      setTourPrice(countryPrices[selectedCountry]);
-    }
-  }, [selectedCountry, countryPrices]);
+    const formInputs = {
+      firstName,
+      lastName,
+      Patronymic,
+      email,
+      phoneNumber,
+      Address,
+      selectedCountry,
+      departureDate,
+      returnDate,
+    };
+    localStorage.setItem("formInputs", JSON.stringify(formInputs));
+  }, [
+    firstName,
+    lastName,
+    Patronymic,
+    email,
+    phoneNumber,
+    Address,
+    selectedCountry,
+    departureDate,
+    returnDate,
+  ]);
+
+  useEffect(() => {
+    checkFormCompletion();
+  }, [
+    countries,
+    firstName,
+    lastName,
+    email,
+    phoneNumber,
+    Address,
+    selectedCountry,
+    departureDate,
+    returnDate,
+  ]);
 
   const checkFormCompletion = () => {
     if (
@@ -51,7 +328,10 @@ function Offer() {
       phoneNumber !== "" &&
       /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) &&
       /^[+]?\d+(\s|\d)*$/.test(phoneNumber) &&
-      selectedCountry !== ""
+      Address !== "" &&
+      selectedCountry !== "" &&
+      departureDate !== "" &&
+      returnDate !== ""
     ) {
       setIsFormFilled(true);
     } else {
@@ -63,12 +343,22 @@ function Offer() {
     const personCount = event.target.value;
     const basePrice = personCount * 2;
     const calculatedPrice = basePrice;
-    setTourPrice(calculatedPrice);
   };
 
   const handleCountryChange = (event) => {
     const selectedCountry = event.target.value;
     setSelectedCountry(selectedCountry);
+  };
+
+  const handleAddressChange = (event) => {
+    const newAddress = event.target.value;
+    setAddress(newAddress);
+    checkFormCompletion();
+  };
+
+  const getPriceForSelectedCountry = () => {
+    const price = countryPrices[selectedCountry];
+    return price ? `$${price}` : "Price not available";
   };
 
   return (
@@ -96,15 +386,36 @@ function Offer() {
             <hr />
           </div>
           <p>
-            Departure from <input type="date" onChange={checkFormCompletion} />
+            Departure from{" "}
+            <input
+              type="date"
+              value={departureDate}
+              onChange={(e) => {
+                setDepartureDate(e.target.value);
+                checkFormCompletion();
+              }}
+            />
           </p>
           <p>
-            Till <input type="date" onChange={checkFormCompletion} />
+            Till{" "}
+            <input
+              type="date"
+              value={returnDate}
+              onChange={(e) => {
+                setReturnDate(e.target.value);
+                checkFormCompletion();
+              }}
+            />
           </p>
           <hr />
           <p>
             Person{" "}
-            <input type="number" min={"0"} onChange={handlePersonChange} />
+            <input
+              type="number"
+              min={"1"}
+              placeholder="Ages 6 and up!"
+              onChange={handlePersonChange}
+            />
           </p>
           <hr />
           <input
@@ -120,6 +431,12 @@ function Offer() {
             onChange={(e) => setLastName(e.target.value)}
           />
           <input
+            type="text"
+            placeholder="Patronymic"
+            value={Patronymic}
+            onChange={(e) => setPatronymic(e.target.value)}
+          />
+          <input
             type="email"
             placeholder="Your email"
             value={email}
@@ -127,7 +444,7 @@ function Offer() {
           />
           <input
             type="text"
-            placeholder="Telefon raqami +998..."
+            placeholder="Your phone +998..."
             value={phoneNumber}
             onChange={(e) => {
               const inputText = e.target.value;
@@ -135,30 +452,28 @@ function Offer() {
               setPhoneNumber(sanitizedText);
             }}
           />
-
-          <textarea
-            name="textarea"
-            id="textarea"
-            cols="30"
-            rows="5"
-            placeholder="Comment (Optional)"
-            value={comment}
-            onChange={(e) => setComment(e.target.value)}
-          ></textarea>
+          <hr />
+          <input
+            type="text"
+            placeholder="Address"
+            value={Address}
+            onChange={handleAddressChange}
+          />
           <div className="offer-tour-price">
             {isFormFilled && selectedCountry && (
               <h5>
-                Price for {selectedCountry}: ${countryPrices[selectedCountry]}
+                Price for {selectedCountry}: {getPriceForSelectedCountry()}
               </h5>
             )}
           </div>
+
           <div className="offer-buttom">
             {isFormFilled ? (
-              <Link to={"/pay"}>
-                <button className="offer-buttom">Buying now</button>
+              <Link to={"/connect"}>
+                <button className="offer-button">Buying now</button>
               </Link>
             ) : (
-              <button className="offer-buttom" onClick={checkFormCompletion}>
+              <button className="offer-button" disabled>
                 Fill in the form first
               </button>
             )}

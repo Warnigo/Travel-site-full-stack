@@ -1,3 +1,126 @@
 main {
-    padding-top: 80px;
+  padding-top: 70px;
+}
+
+.loading-packages {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.packages-all-div {
+  background-color: var(--gray-50) !important;
+  padding: 30px 0 70px;
+}
+
+.header-form {
+  display: flex;
+  align-items: center;
+  margin-top: 16px;
+  padding: 8px;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.header-form input {
+  width: 100%;
+  padding: 10px 16px;
+  outline: none;
+  border: none;
+}
+
+.price-p {
+  margin: 0;
+}
+
+.packages-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.packages-list a {
+  margin-top: 0.5rem;
+  color: #6b7280;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.package-item {
+  border-radius: 0.5rem;
+  background-color: #fff;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border: 1px solid transparent;
+  text-align: center;
+  padding: 5px 5px 20px;
+}
+
+.package-item img {
+  object-fit: cover;
+  width: 100%;
+  height: 150px;
+  background-color: rgb(239, 205, 255);
+  border-radius: 5px;
+}
+
+.package-item h3 {
+  color: #000;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+  padding-top: 7px;
+}
+
+.package-item button {
+  margin-top: 0.5rem;
+  color: #fff;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  background-color: var(--green-500);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 7px;
+}
+
+.package-item button:hover {
+  background-color: var(--green-600);
+}
+
+.ant-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 0 50px;
+}
+
+.empty-packages {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+@media (max-width: 991px) {
+  .packages-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .packages-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 515px) {
+  .packages-list {
+    grid-template-columns: 1fr;
+  }
+  .package-item {
+    justify-self: center;
+  }
 }

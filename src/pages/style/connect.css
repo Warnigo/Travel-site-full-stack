@@ -1,0 +1,40 @@
+.all {
+    text-align: center;
+    background-color: var(--gray-50);
+}
+
+.connect-title h2{
+    font-weight: 800;
+}
+
+.connect-infomation {
+    padding: 10px 0 10px;
+    background-color: #fff;
+    width: 70%;
+    margin: 0 auto;
+}
+
+p b {
+    color: #253d2b;
+}
+
+.con-buttom {
+    padding: 0 0 5px;
+    background-color: var(--green-500);
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    width: 150px;
+    height: 35px;
+}
+
+.con-buttom:hover {
+    background-color: var(--green-600);
+}
+
+.change-buttom {
+    color: blue;
+    font-weight: 600;
+    font-size: 17px;
+    padding: 10px 0 0 !important;
+}
