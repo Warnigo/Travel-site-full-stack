@@ -28,13 +28,21 @@ p b {
     height: 35px;
 }
 
+.checkbox {
+    padding-top: 20px ;
+}
+
 .con-buttom:hover {
     background-color: var(--green-600);
 }
 
 .change-buttom {
-    color: blue;
+    color: rgb(0, 0, 0);
     font-weight: 600;
     font-size: 17px;
     padding: 10px 0 0 !important;
+}
+
+.change-buttom:hover {
+    color: rgb(63, 63, 63);
 }
