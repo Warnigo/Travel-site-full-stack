@@ -1,3 +1,146 @@
-.paymant {
-    background-color: var(--gray-50);
+.payment {
+    background-color: #eeeeee;
+    color: #000000;
+}
+
+.all_pay {
+    background-color: #fff;
+    /* max-width: 360px; */
+    padding: 0 20px;
+    margin: 0 auto;
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+.pay-data {
+    text-align: center;
+    padding: 15px 0 0;
+    font-size: 18px;
+}
+
+.pay-p {
+    margin-top: -20px;
+}
+
+.buttoms-back {
+    text-align: end;
+    padding: 10px 0px 0;
+}
+
+.buttoms-back button {
+    background-color: #94BD31;
+    color: #fff;
+    border: none !important;
+    border-radius: 7px;
+    width: 250px;
+    height: 40px;
+}
+
+.payment-information {
+    display: flex;
+    justify-content: center !important;
+    padding: 10px 0 0;
+}
+
+.payment-information div {
+    margin: 0 auto !important;
+}
+
+.pay-m p {
+    margin-top: -10px !important;
+}
+
+.price-payment-check h5 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.price-payment-check table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.price-payment-check th,
+.price-payment-check td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.price-payment-check th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+.price-payment-check td:nth-child(4) {
+    color: #4CAF50;
+}
+
+.price-payment-check tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.payment-pay {
+    padding: 20px 10px 20px;
+}
+
+.payment-pay img {
+    width: 15%;
+    margin: 0 auto;
+    padding: 0 20px 0;
+}
+
+.radio-div {
+    margin-top: 10px;
+}
+
+.radio-div label {
+    display: inline-block;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.radio-div img {
+    width: 200px;
+    height: auto;
+    padding: 10px 20px 0;
+}
+
+.radio-div label {
+    display: inline-block;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.radio-div label img {
+    width: 200px;
+    height: auto;
+    padding: 10px 20px 0;
+    transition: transform 0.3s, filter 0.3s;
+}
+
+.radio-div label:hover img {
+    transform: scale(1.05);
+    filter: brightness(1.05);
+}
+
+.radio-div label input[type="radio"]:checked+img {
+    filter: brightness(1.05);
+}
+
+.pay-bottom-buttom {
+    background-color: #94BD28;
+    border: none !important;
+    width: 100% !important;
+    height: 40px;
+    border-radius: 7px;
+    color: #fff;
+}
+
+.pay-bottom-buttom-div {
+    padding: 10px 0 30px;
+}
+
+.pay-bottom-buttom:hover {
+    background-color: #94BD10;
 }

@@ -19,10 +19,11 @@ function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="packages" element={<Packages />} />
           <Route path="offer" element={<Offer />} />
-          <Route path="pay" element={<Payment />} />
+          
           <Route path="country/:id/country-about" element={<Country />} />
           <Route path="connect" element={<Connect />} />
         </Route>
+        <Route path="pay" element={<Payment />} />
         <Route path="*" element={<NotFoundP />} />
       </Routes>
     </BrowserRouter>

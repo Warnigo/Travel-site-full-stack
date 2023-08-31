@@ -268,7 +268,7 @@ const HomeP = () => {
               <i className="ri-arrow-right-s-line"></i>
             </a>
             <div className="destination-list" id="destination-list">
-              <Link href="country/1/country-about">
+              <Link to={"/country/1/country-about"}>
                 <div className="destination-list-card">
                   <div className="destination-list-top">
                     <img src={dp5} />
@@ -289,7 +289,7 @@ const HomeP = () => {
                   </div>
                 </div>
               </Link>
-              <Link href="country/14/country-about">
+              <Link to={"/country/14/country-about"}>
                 <div className="destination-list-card">
                   <div className="destination-list-top">
                     <img src={dp2} />
@@ -310,7 +310,7 @@ const HomeP = () => {
                   </div>
                 </div>
               </Link>
-              <Link href="country/20/country-about">
+              <Link to={"/country/20/country-about"}>
                 <div className="destination-list-card">
                   <div className="destination-list-top">
                     <img src={dp6} />
@@ -331,7 +331,7 @@ const HomeP = () => {
                   </div>
                 </div>
               </Link>
-              <Link href="country/13/country-about">
+              <Link to={"/country/13/country-about"}>
                 <div className="destination-list-card">
                   <div className="destination-list-top">
                     <img src={dp1} />
@@ -352,7 +352,7 @@ const HomeP = () => {
                   </div>
                 </div>
               </Link>
-              <Link href="country/2/country-about">
+              <Link to={"/country/2/country-about"}>
                 <div className="destination-list-card">
                   <div className="destination-list-top">
                     <img src={dp4} />
@@ -373,7 +373,7 @@ const HomeP = () => {
                   </div>
                 </div>
               </Link>
-              <Link href="country/21/country-about">
+              <Link to={"/country/21/country-about"}>
                 <div className="destination-list-card">
                   <div className="destination-list-top">
                     <img src={dp3} />
@@ -394,7 +394,7 @@ const HomeP = () => {
                   </div>
                 </div>
               </Link>
-              <Link href="country/9/country-about">
+              <Link to={"/country/9/country-about"}>
                 <div className="destination-list-card">
                   <div className="destination-list-top">
                     <img src={dp} />
