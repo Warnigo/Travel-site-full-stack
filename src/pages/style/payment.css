@@ -144,3 +144,9 @@
 .pay-bottom-buttom:hover {
     background-color: #94BD10;
 }
+
+@media screen and (min-width: 767px) {
+    .payment-information {
+        display: inline-block;
+    }
+}
