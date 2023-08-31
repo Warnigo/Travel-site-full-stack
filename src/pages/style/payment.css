@@ -41,6 +41,10 @@
     padding: 10px 0 0;
 }
 
+.hr-pay {
+    display: none !important;
+}
+
 .payment-information div {
     margin: 0 auto !important;
 }
@@ -145,8 +149,25 @@
     background-color: #94BD10;
 }
 
-@media screen and (min-width: 767px) {
+@media screen and (max-width: 575px) {
     .payment-information {
-        display: inline-block;
+        display: inline;
     }
-}
+
+    .buttoms-back {
+        text-align: center;
+    }
+
+    .hr-pay {
+        display: block !important;
+    }
+
+    .user-pay-information {
+        padding: 15px 0 0 ;
+    }
+
+    .payment-pay {
+        text-align: center;
+    }
+    
+  }

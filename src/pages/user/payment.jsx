@@ -41,7 +41,7 @@ function Payment() {
                             <p><b>Bank code: </b>00954</p>
                             <p><b>Address: </b>Chirchiq city, 10-44-21 apartment</p>
                             <p><b>Phone Number: </b>+998 71 201 08 85</p>
-                            <p><b>Email: </b>vegotravel001@gmail.com</p>
+                            <p><b>Email: </b>vegotravel001@gmail.com</p><hr className="hr-pay" />
                         </div>
                         <div className="user-pay-information pay-m">
                             <p><b>First Name:</b> {parsedData.firstName}</p>
