@@ -236,6 +236,8 @@ import "../style/offer.css";
 function Offer() {
   const [countries, setCountries] = useState([]);
   const [isFormFilled, setIsFormFilled] = useState(false);
+  const [price, setPrice] = useState(0)
+  const [personCount, setPersonCount] = useState(0)
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -291,6 +293,8 @@ function Offer() {
       selectedCountry,
       departureDate,
       returnDate,
+      personCount,
+      price
     };
     localStorage.setItem("formInputs", JSON.stringify(formInputs));
   }, [
@@ -303,6 +307,8 @@ function Offer() {
     selectedCountry,
     departureDate,
     returnDate,
+    personCount,
+    price
   ]);
 
   useEffect(() => {
@@ -340,9 +346,13 @@ function Offer() {
   };
 
   const handlePersonChange = (event) => {
-    const personCount = event.target.value;
-    const basePrice = personCount * 2;
-    const calculatedPrice = basePrice;
+    const personCount = parseInt(event.target.value);
+    const travelPrice = parseFloat(countryPrices[selectedCountry]);
+    const totalPrice = travelPrice * personCount
+
+    // e.g: 100.00
+    setPrice(totalPrice.toFixed(2))
+    setPersonCount(personCount)
   };
 
   const handleCountryChange = (event) => {
@@ -354,11 +364,6 @@ function Offer() {
     const newAddress = event.target.value;
     setAddress(newAddress);
     checkFormCompletion();
-  };
-
-  const getPriceForSelectedCountry = () => {
-    const price = countryPrices[selectedCountry];
-    return price ? `$${price}` : "Price not available";
   };
 
   return (
@@ -462,7 +467,7 @@ function Offer() {
           <div className="offer-tour-price">
             {isFormFilled && selectedCountry && (
               <h5>
-                Price for {selectedCountry}: {getPriceForSelectedCountry()}
+                Price for {selectedCountry}: ${price}
               </h5>
             )}
           </div>

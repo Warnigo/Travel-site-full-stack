@@ -68,16 +68,16 @@ function Payment() {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>{parsedData.selectedCountry}</td>
+                                    <td>{parsedData.selectedCountry} x{parsedData.personCount}</td>
                                     <td>{parsedData.departureDate}</td>
                                     <td>{parsedData.returnDate}</td>
-                                    <td>$998</td>
+                                    <td>${parsedData.price}</td>
                                 </tr>
                                 <tr>
                                     <td>Total price</td>
                                     <td></td>
                                     <td></td>
-                                    <td>$998</td>
+                                    <td>${parsedData.price}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -90,7 +90,7 @@ function Payment() {
                                 <img src={payme} alt="Payme" />
                             </label><br />
 
-                            <label>
+                            {/* <label>
                                 <input type="radio" id="click" name="payment" />
                                 <img src={click} alt="Click"  className="click "/>
                             </label><br />
@@ -98,7 +98,7 @@ function Payment() {
                             <label>
                                 <input type="radio" id="visa" name="payment" />
                                 <img src={visa} alt="Visa" />
-                            </label>
+                            </label> */}
                         </div>
                     </div>
                     <div className="pay-bottom-buttom-div">
