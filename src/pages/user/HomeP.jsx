@@ -132,13 +132,13 @@ const HomeP = () => {
       .then((response) => response.json())
       .then((data) => {
         if (data.ok) {
-          alert("Message sent! We will contact you soon.");
+          alert("Xabar yuborildi! Tez orada siz bilan bog'lanamiz.");
         } else {
-          alert("There was an error sending the message. Please try again.");
+          alert("Xabarni yuborishda xatolik yuz berdi. Iltimos, yana bir bor urinib ko'ring.");
         }
       })
       .catch((error) => {
-        alert("There was an error sending the message. Please try again.");
+        alert("Xabarni yuborishda xatolik yuz berdi. Iltimos, yana bir bor urinib ko'ring.");
       });
   };
   // telegram client for contact button end
@@ -155,16 +155,15 @@ const HomeP = () => {
             </div>
             <div className="header-wrapper">
               <h2 className="header-title">
-                Discover the world one adventure at a time
+                Dunyoni bir vaqtning o'zida bir sarguzasht bilan kashf eting
               </h2>
               <p className="header-description">
-                Discover the world with tour. Explore new destinations and book
-                your next tour today.
+                Ekskursiya bilan dunyoni kashf eting. Yangi yo'nalishlarni o'rganing va keyingi sayohatingizni bugun bron qiling.
               </p>
               <form className="header-form">
                 <input
                   type="text"
-                  placeholder="Search for your adventure..."
+                  placeholder="Davlatlarni qidiring..."
                   value={searchText}
                   onChange={(e) => {
                     const newValue = e.target.value;
@@ -175,15 +174,14 @@ const HomeP = () => {
                 <div className="dropdown">
                   <Link to={"/packages"}>
                     <button type="submit" className="btn">
-                      <i className="ri-search-line"></i> Search
+                      <i className="ri-search-line"></i> Qidirish
                     </button>
                   </Link>
                 </div>
               </form>
               <div
-                className={`dropdown-content ${
-                  searchText.length > 0 ? "active" : ""
-                }`}
+                className={`dropdown-content ${searchText.length > 0 ? "active" : ""
+                  }`}
               >
                 {searchText.length > 0 &&
                   filteredCountries
@@ -214,12 +212,9 @@ const HomeP = () => {
       <section id="section-2">
         <div className="container">
           <div className="city-images-txt">
-            <h1>Places not to be missed</h1>
+            <h1>O'tkazib yubormaslik kerak bo'lgan joylar</h1>
             <p>
-              You have the opportunity to see the places in these pictures with
-              your own eyes. Whether you want to travel to a developed city or
-              to a country with wonderful nature, decide for yourself and
-              contact us!
+              Ushbu suratlardagi joylarni o'z ko'zingiz bilan ko'rish imkoniga egasiz. Rivojlangan shaharga yoki ajoyib tabiatga ega mamlakatga sayohat qilishni xohlaysizmi, o'zingiz qaror qiling va biz bilan bog'laning!
             </p>
           </div>
           <div className="city-images-img">
@@ -242,10 +237,10 @@ const HomeP = () => {
       <section className="destination">
         <div className="container">
           <div className="title-ds">
-            <h2 className="destination-title">Top Destinations</h2>
+            <h2 className="destination-title">Eng yaxshi manzillar</h2>
             <Link to={"/packages"} style={{ color: "black" }}>
               <h3 className="destination-more">
-                More <i className="ri-arrow-down-s-line"></i>
+                Ko'proq <i className="ri-arrow-down-s-line"></i>
               </h3>
             </Link>
           </div>
@@ -272,19 +267,18 @@ const HomeP = () => {
                 <div className="destination-list-card">
                   <div className="destination-list-top">
                     <img src={dp5} />
-                    <span className="destinations-list-top-tag">Popular</span>
+                    <span className="destinations-list-top-tag">Ommabop</span>
                   </div>
                   <div className="destination-list-content">
                     <div className="destination-list-content-location">
                       <i className="ri-global-line"> </i>
-                      London, England
+                      London, Angliya
                     </div>
                     <p className="destination-list-content-title">
-                      7 day trip in the capital of England, London. A journey
-                      full of wonderful adventures awaits you.
+                      Angliya poytaxti Londonda 5 kunlik sayohat. Sizni ajoyib sarguzashtlarga to'la sayohat kutmoqda.
                     </p>
                     <div class="destination-list-content-price">
-                      from <span>$990</span>
+                      Tur narxi: <span>$670.00</span>
                     </div>
                   </div>
                 </div>
@@ -293,19 +287,19 @@ const HomeP = () => {
                 <div className="destination-list-card">
                   <div className="destination-list-top">
                     <img src={dp2} />
-                    <span className="destinations-list-top-tag">Popular</span>
+                    <span className="destinations-list-top-tag">Ommabop</span>
                   </div>
                   <div className="destination-list-content">
                     <div className="destination-list-content-location">
                       <i className="ri-global-line"> </i>
-                      Pekin, China
+                      Pekin, Xitoy
                     </div>
                     <p className="destination-list-content-title">
-                      8 day trip in the capital of China, Pekin. A journey full
-                      of wonderful adventures awaits you.
+                      Xitoy poytaxti Pekinda 6 kunlik sayohat. To'liq sayohat
+                      sizni ajoyib sarguzashtlar kutmoqda.
                     </p>
                     <div class="destination-list-content-price">
-                      from <span>$549</span>
+                      Tur narxi: <span>$255.00</span>
                     </div>
                   </div>
                 </div>
@@ -314,19 +308,19 @@ const HomeP = () => {
                 <div className="destination-list-card">
                   <div className="destination-list-top">
                     <img src={dp6} />
-                    <span className="destinations-list-top-tag">Popular</span>
+                    <span className="destinations-list-top-tag">Ommabop</span>
                   </div>
                   <div className="destination-list-content">
                     <div className="destination-list-content-location">
                       <i className="ri-global-line"> </i>
-                      Istanbull, Turkey
+                      Istanbul, Turkiya
                     </div>
                     <p className="destination-list-content-title">
-                      8 day trip in the capital of Istanbull, Turkey. A journey
-                      full of wonderful adventures awaits you.
+                      Turkiyaning Istanbull shahrida 5 kunlik sayohat. Sayohat
+                      ajoyib sarguzashtlarga to'la sizni kutmoqda.
                     </p>
                     <div class="destination-list-content-price">
-                      from <span>$639</span>
+                      Tur narxi: <span>$639.00</span>
                     </div>
                   </div>
                 </div>
@@ -335,19 +329,19 @@ const HomeP = () => {
                 <div className="destination-list-card">
                   <div className="destination-list-top">
                     <img src={dp1} />
-                    <span className="destinations-list-top-tag">Popular</span>
+                    <span className="destinations-list-top-tag">Ommabop</span>
                   </div>
                   <div className="destination-list-content">
                     <div className="destination-list-content-location">
                       <i className="ri-global-line"> </i>
-                      Abu Dhabi, Dubai
+                      Abu Dabi, Dubai
                     </div>
                     <p className="destination-list-content-title">
-                      6 day trip in the capital of Dubai. A journey full of
-                      wonderful adventures awaits you.
+                      Dubay poytaxtida 4 kunlik sayohat. To'liq sayohat
+                      sizni ajoyib sarguzashtlar kutmoqda.
                     </p>
                     <div class="destination-list-content-price">
-                      from <span>$470</span>
+                      Tur narxi: <span>$320.00</span>
                     </div>
                   </div>
                 </div>
@@ -356,19 +350,19 @@ const HomeP = () => {
                 <div className="destination-list-card">
                   <div className="destination-list-top">
                     <img src={dp4} />
-                    <span className="destinations-list-top-tag">Popular</span>
+                    <span className="destinations-list-top-tag">Ommabop</span>
                   </div>
                   <div className="destination-list-content">
                     <div className="destination-list-content-location">
                       <i className="ri-global-line"> </i>
-                      Rim, Italy
+                      Rim, Italiya
                     </div>
                     <p className="destination-list-content-title">
-                      9 day trip in the capital of Rim, Italy. A journey full of
-                      wonderful adventures awaits you.
+                      Italiyaning Rim poytaxtiga 6 kunlik sayohat. To'liq sayohat
+                      sizni ajoyib sarguzashtlar kutmoqda.
                     </p>
                     <div class="destination-list-content-price">
-                      from <span>$680</span>
+                      Tur narxi: <span>$680.00</span>
                     </div>
                   </div>
                 </div>
@@ -377,19 +371,19 @@ const HomeP = () => {
                 <div className="destination-list-card">
                   <div className="destination-list-top">
                     <img src={dp3} />
-                    <span className="destinations-list-top-tag">Popular</span>
+                    <span className="destinations-list-top-tag">Ommabop</span>
                   </div>
                   <div className="destination-list-content">
                     <div className="destination-list-content-location">
                       <i className="ri-global-line"> </i>
-                      Tbilisi, Georgia
+                      Tbilisi, Gruziya
                     </div>
                     <p className="destination-list-content-title">
-                      8 day trip in the capital of Tbilisi, Georgia. A journey
-                      full of wonderful adventures awaits you.
+                      Gruziya poytaxti Tbilisida 8 kunlik sayohat. Sayohat
+                      ajoyib sarguzashtlarga to'la sizni kutmoqda.
                     </p>
                     <div class="destination-list-content-price">
-                      from <span>$670</span>
+                      Tur narxi: <span>$670.00</span>
                     </div>
                   </div>
                 </div>
@@ -398,19 +392,19 @@ const HomeP = () => {
                 <div className="destination-list-card">
                   <div className="destination-list-top">
                     <img src={dp} />
-                    <span className="destinations-list-top-tag">Popular</span>
+                    <span className="destinations-list-top-tag">Ommabop</span>
                   </div>
                   <div className="destination-list-content">
                     <div className="destination-list-content-location">
                       <i className="ri-global-line"> </i>
-                      Vena, Austria
+                      Vena, Avstriya
                     </div>
                     <p className="destination-list-content-title">
-                      7 day trip in the capital of Vena, Austria. A journey full
-                      of wonderful adventures awaits you.
+                      Avstriyaning Vena shahriga 7 kunlik sayohat. To'liq sayohat
+                      sizni ajoyib sarguzashtlar kutmoqda.
                     </p>
                     <div class="destination-list-content-price">
-                      from <span>$690</span>
+                      Tur narxi: <span>$690.00</span>
                     </div>
                   </div>
                 </div>
@@ -422,7 +416,7 @@ const HomeP = () => {
       </section>
       <section className="section-about">
         <div className="container">
-          <h1 className="about-h1">About company</h1>
+          <h1 className="about-h1">Kompaniya haqida</h1>
           <div className="about-all-div">
             <div className="about-right">
               <img
@@ -431,17 +425,17 @@ const HomeP = () => {
                 className="about-img about-img-left"
               />
               <p className="about-p-right">
-                Through this site, you can travel to the times you want and
-                like. You can make all the necessary arrangements for your trip
-                through us. Even in the matter of visa
+                Ushbu sayt orqali siz o'zingiz xohlagan va vaqtga sayohat qilishingiz mumkin
+                kabi. Sayohatingiz uchun barcha kerakli tadbirlarni amalga oshirishingiz mumkin
+                biz orqali. Hatto viza masalasida ham
               </p>
               <hr className="about-hr" />
             </div>
             <div className="about-left">
               <p className="about-p-left">
-                Also, through VEGO-TRAVEL, you can use our services of airline
-                tickets, hotels, visas, ochrat issues and questionnaires. We are
-                happy to show you respect
+                Shuningdek, VEGO-TRAVEL orqali siz aviakompaniyamiz xizmatlaridan foydalanishingiz mumkin
+                chiptalar, mehmonxonalar, vizalar, ochrat masalalari va anketalar. Biz
+                hurmat ko'rsatishdan xursandman
               </p>
               <img
                 src={bg7}
@@ -454,26 +448,27 @@ const HomeP = () => {
       </section>
       <section className="end-section-contact">
         <div className="container">
-          <h3>Fill in your information and we will contact you.</h3>
+          <h3>Ma'lumotlaringizni to'ldiring va biz siz bilan bog'lanamiz.</h3>
           <div className="input-contact">
             <input
               type="text"
-              placeholder="First name"
+              placeholder="Isim"
               onChange={(e) => setFirstName(e.target.value)}
             />
             <input
               type="text"
-              placeholder="Last name"
+              placeholder="Famiya"
               onChange={(e) => setLastName(e.target.value)}
             />
             <input
               type="text"
-              placeholder="+998..."
+              placeholder="Telefon raqam +998..."
               onChange={(e) => setPhoneNumber(e.target.value)}
+
             />
             <input
               type="email"
-              placeholder="Email"
+              placeholder="Electron pochta"
               onChange={(e) => setEmail(e.target.value)}
             />
             <textarea
@@ -481,7 +476,7 @@ const HomeP = () => {
               id="textarea"
               cols="30"
               rows="5"
-              placeholder="Comment (Optional)"
+              placeholder="Izoh (Ixtiyoriy)"
               onChange={(e) => setComment(e.target.value)}
             ></textarea>
             <button
@@ -489,7 +484,7 @@ const HomeP = () => {
               className="contact-butom"
               onClick={sendToTelegram}
             >
-              Send
+              Yuborish
             </button>
           </div>
         </div>

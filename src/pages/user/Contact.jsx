@@ -47,14 +47,14 @@ const Contact = () => {
       <div className="container">
         <div className='details'>
           <div className="contact-details">
-            <h4>Our Address:</h4>
-            <p>Chirchiq, 10-44-21 apartment</p>
+            <h4>Bizning manzil:</h4>
+            <p>Chirchiq, 10-44-21 uy</p>
 
-            <h4>Our Phone Number</h4>
+            <h4>Bizni telefon raqamlarimiz:</h4>
             <p>+998(33) 711 08 85</p>
 
-            <h4>Quick Contact:</h4>
-            <Link to={"mailto:vegotravel001@gmail.com"}><p className='p'>Email</p></Link>
+            <h4>Tezkor aloqa:</h4>
+            <Link to={"mailto:vegotravel001@gmail.com"}><p className='p'>Electron pochta</p></Link>
             <Link to={"https://t.me/vego_travel"}><p className='p'>Telegram</p></Link>
             <Link to={"https://www.facebook.com/profile.php?id=61550935043546&mibextid=9R9pXO"}><p className='p'>Facebook</p></Link>
             <Link to={"https://www.instagram.com/vego.travel"}><p className='p'>Instagram</p></Link>
@@ -62,11 +62,11 @@ const Contact = () => {
           </div>
         </div>
         <div>
-          <h3>Fill in your information and we will contact you.</h3>
+          <h3>Ma'lumotlaringizni to'ldiring va biz siz bilan bog'lanamiz.</h3>
           <div className="input-contact">
-            <input type="text" placeholder="Surname" onChange={e => setFirstName(e.target.value)} />
-            <input type="text" placeholder="Given name" onChange={e => setLastName(e.target.value)} />
-            <input type="text" placeholder="Patronymic" onChange={e => setPatronymic(e.target.value)} />
+            <input type="text" placeholder="isim" onChange={e => setFirstName(e.target.value)} />
+            <input type="text" placeholder="Familiya" onChange={e => setLastName(e.target.value)} />
+            <input type="text" placeholder="O'tangizni ismi" onChange={e => setPatronymic(e.target.value)} />
             <input
               type="text"
               placeholder="Telefon raqami +998..."
@@ -77,16 +77,16 @@ const Contact = () => {
                 setPhoneNumber(sanitizedText);
               }}
             />
-            <input type="email" placeholder="Email" onChange={e => setEmail(e.target.value)} />
+            <input type="email" placeholder="Electron pochta" onChange={e => setEmail(e.target.value)} />
             <textarea
               name="textarea"
               id="textarea"
               cols="30"
               rows="5"
-              placeholder="Comment (Optional)"
+              placeholder="Izoh (Ixtiyoriy)"
               onChange={e => setComment(e.target.value)}
             ></textarea>
-            <button type="submit" className="contact-butom" onClick={sendToTelegram}>Send</button>
+            <button type="submit" className="contact-butom" onClick={sendToTelegram}>Yuborish</button>
           </div>
         </div>
       </div>

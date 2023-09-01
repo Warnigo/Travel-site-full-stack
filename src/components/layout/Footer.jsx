@@ -2,6 +2,8 @@ import React from "react";
 import "./Footer.scss";
 import { Link } from "react-router-dom";
 
+import payme from "../../assets/icons/payme-logo.svg"
+
 function Footer() {
   return (
     <footer>
@@ -9,7 +11,7 @@ function Footer() {
         <div className="footer-top">
           <Link to="/" style={{ color: "black" }}>
             <h4 className="footer-logo" style={{ fontWeight: 600 }}>
-              Vego-travel <small>Company</small>
+              Vego-travel <small>kopaniya</small>
             </h4>
           </Link>
           <div className="footer-social">
@@ -26,10 +28,10 @@ function Footer() {
         </div>
         <div className="footer-links">
           <div>
-            <div className="footer-links-title">Company</div>
+            <div className="footer-links-title">Kopaniya</div>
             <ul className="footer-links-list">
               <li>
-                <Link to="/">About</Link>
+                <Link to="/">Kompaniya haqida</Link>
               </li>
               <li>
                 <Link to={"tel:+998337110885"}>+998 33 711 08 85</Link>
@@ -40,24 +42,21 @@ function Footer() {
             </ul>
           </div>
           <div>
-            <div className="footer-links-title">Details</div>
+            <div className="footer-links-title">Tafsilotlar</div>
             <ul className="footer-links-list">
               <li>
                 <Link to="/packages">Services</Link>
               </li>
               <li>
-                <Link to="/contact">Contact | Info</Link>
+                <Link to="/contact">Bo'glanish | malumot</Link>
               </li>
             </ul>
           </div>
           <div>
-            <div className="footer-links-title">Price Details</div>
+            <div className="footer-links-title">To'lov usuli</div>
             <ul className="footer-links-list">
               <li>
-                <Link to="/offer">Paymee</Link>
-              </li>
-              <li>
-                <Link to="/offer">Click</Link>
+                <Link to="/offer">Payme</Link>
               </li>
             </ul>
           </div>

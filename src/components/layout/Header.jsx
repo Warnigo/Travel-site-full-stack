@@ -113,7 +113,7 @@ function Header() {
                     data-toggle="navbar-submenu"
                     data-target="#tour"
                   >
-                    Tour <i className="ri-arrow-down-s-line"></i>
+                    Davlatlar <i className="ri-arrow-down-s-line"></i>
                   </Link>
                   <div className="navbar-submenu-wrapper">
                     <div className="navbar-submenu-menu-wrapper" id="tour">
@@ -123,7 +123,7 @@ function Header() {
                           data-dismiss="navbar-submenu"
                           className="navbar-submenu-back"
                         >
-                          Back
+                          Orqaga
                         </Link>
                         <Link
                           to={"/"}
@@ -141,7 +141,7 @@ function Header() {
                             data-toggle="navbar-submenu-content navbar-submenu"
                             data-target="#tour-india"
                           >
-                            Europe <i className="ri-arrow-right-s-line"></i>
+                            Yevropa <i className="ri-arrow-right-s-line"></i>
                           </Link>
                         </li>
                         <li>
@@ -150,7 +150,7 @@ function Header() {
                             data-toggle="navbar-submenu-content navbar-submenu"
                             data-target="#tour-sri"
                           >
-                            Asia <i className="ri-arrow-right-s-line"></i>
+                            Osio <i className="ri-arrow-right-s-line"></i>
                           </Link>
                         </li>
                         <li>
@@ -174,7 +174,7 @@ function Header() {
                           data-dismiss="navbar-submenu"
                           className="navbar-submenu-back"
                         >
-                          Back
+                          Orqaga
                         </Link>
                         <Link
                           to={"/"}
@@ -184,7 +184,7 @@ function Header() {
                           &times;
                         </Link>
                       </div>
-                      <div className="navbar-submenu-content-title">Europe</div>
+                      <div className="navbar-submenu-content-title">Yevropa</div>
                       <ul className="navbar-submenu-content">
                         {europeCountries.map((country) => (
                           <li key={country.id}>
@@ -205,7 +205,7 @@ function Header() {
                           data-dismiss="navbar-submenu"
                           className="navbar-submenu-back"
                         >
-                          Back
+                          Orqaga
                         </Link>
                         <Link
                           to={"/"}
@@ -215,7 +215,7 @@ function Header() {
                           &times;
                         </Link>
                       </div>
-                      <div className="navbar-submenu-content-title">Asia</div>
+                      <div className="navbar-submenu-content-title">Osio</div>
                       <ul className="navbar-submenu-content">
                         {asiaCountries.map((country) => (
                           <li key={country.id}>
@@ -236,7 +236,7 @@ function Header() {
                           data-dismiss="navbar-submenu"
                           className="navbar-submenu-back"
                         >
-                          Back
+                          Orqaga
                         </Link>
                         <Link
                           to={"/"}
@@ -260,10 +260,10 @@ function Header() {
                   </div>
                 </li>
                 <li>
-                  <Link to={"/packages"}>Packages</Link>
+                  <Link to={"/packages"}>Turlar</Link>
                 </li>
                 <li>
-                  <Link to={"/Contact"}>Contact Us</Link>
+                  <Link to={"/Contact"}>Bog'lanish</Link>
                 </li>
               </ul>
             </div>

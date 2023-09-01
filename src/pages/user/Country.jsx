@@ -4,14 +4,6 @@ import { request } from "../../server/server";
 import { Spin } from "antd";
 import "../style/country.css";
 
-import dp from "../../assets/images/other/austria.jpg";
-import dp1 from "../../assets/images/other/burch-alarab.jpg";
-import dp2 from "../../assets/images/other/china-b.jpg";
-import dp3 from "../../assets/images/other/geogria.jpg";
-import dp4 from "../../assets/images/other/Italy.jpg";
-import dp5 from "../../assets/images/other/london.jpg";
-import dp6 from "../../assets/images/istanbull.jpg";
-
 const Country = () => {
   const { id } = useParams();
   const [countryData, setCountryData] = useState(null);
@@ -50,7 +42,7 @@ const Country = () => {
       )}
       {countryData ? (
         <div>
-          <h2 className="country-name">{countryData.name}</h2>
+          <h2 className="country-name">{countryData.name_uz}</h2>
           <div id="show">
             <img src={showImgSrc} alt="" />
           </div>
@@ -74,27 +66,27 @@ const Country = () => {
               ))}
             </div>
             <div className="country-description-div">
-              <h3>About tour</h3>
-              <p className="country-description">{countryData.description}</p>
+              <h3>Tur haqida</h3>
+              <p className="country-description">{countryData.description_uz}</p>
               <hr />
-              <h3>Description</h3>
-              <p className="country-description1">{countryData.description1}</p>
+              <h3>Tafsilotlar</h3>
+              <p className="country-description1">{countryData.description1_uz}</p>
               <hr />
               <div className="country-contact">
-                <p>Contact us for more details!</p>
+                <p>Batafsil ma'lumot uchun biz bilan bog'laning!</p>
               </div>
             </div>
           </div>
           <div className="country-price-div">
             <hr />
             <p>
-              Tour price: <span>${countryData.price}</span>
+              Tur narxi: <span>${countryData.price}</span>
             </p>
             <hr />
           </div>
           <div className="country-buttom">
             <Link to={"/offer"} className="link">
-              <button type="submit">Buy tour</button>
+              <button type="submit">Tur  sotib olish</button>
             </Link>
           </div>
         </div>

@@ -37,7 +37,7 @@ const Packages = () => {
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentItems = filteredData.slice(indexOfFirstItem, indexOfLastItem);
-    setFilteredItems(currentItems); // setCurrentItems o'rniga setFilteredItems deb o'zgartirish
+    setFilteredItems(currentItems);
   }, [currentPage, filteredData, itemsPerPage]);
 
   const handleSearchChange = (event) => {
@@ -70,13 +70,13 @@ const Packages = () => {
         <form className="header-form">
           <input
             type="text"
-            placeholder="Search for your adventure..."
+            placeholder="Davlatlarni qidiring..."
             value={searchText}
             onChange={handleSearchChange}
           />
           <Link to="?" className="btn-link">
             <button className="btn">
-              <i className="ri-search-line"></i> Search
+              <i className="ri-search-line"></i> Qidirish
             </button>
           </Link>
         </form>
@@ -103,7 +103,7 @@ const Packages = () => {
                         {item.description.split(" ").length > 10 ? "..." : ""}
                       </p>
 
-                      <button className="price-p">Price: ${item.price}</button>
+                      <button className="price-p">Narxi: ${item.price}</button>
                     </div>
                   </Link>
                 ))
