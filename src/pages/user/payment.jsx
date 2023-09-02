@@ -7,18 +7,6 @@ function Payment() {
     const parsedData = storedData ? JSON.parse(storedData) : {};
     const currentDate = new Date();
 
-    const handlePaymentButtonClick = () => {
-        const paymentMethod = document.querySelector('input[name="payment"]:checked').id;
-
-        if (paymentMethod === "click") {
-            window.location.href = "https://click.uz";
-        } else if (paymentMethod === "visa") {
-            window.location.href = "https://visa.com";
-        } else if (paymentMethod === "payme") {
-            window.location.href = "https://payme.uz";
-        }
-    };
-
     return (
         <div className="payment">
             <div className="container">
@@ -86,7 +74,9 @@ function Payment() {
                         </div>
                     </div>
                     <div className="pay-bottom-buttom-div">
-                        <button onClick={handlePaymentButtonClick} className="pay-bottom-buttom">To'lov</button>
+                        <Link to={"https://payme.uz"}>
+                            <button className="pay-bottom-buttom">To'lov</button>
+                        </Link>
                     </div>
                 </div>
             </div>
