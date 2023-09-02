@@ -52,26 +52,26 @@ const Connect = () => {
     <div className="all">
       <div className="container">
         <div className="connect-title">
-          <h2>Connected Information</h2>
-          <p>Check your information</p>
+          <h2>Malumotlarni tekshirish</h2>
+          <p>Malumotlaringizni tekshiring!</p>
         </div>
         <div className="connect-infomation">
-          <p><b>First Name:</b> {parsedData.firstName}</p>
-          <p><b>Last Name:</b> {parsedData.lastName}</p>
-          <p><b>Patronymic:</b> {parsedData.Patronymic}</p>
-          <p><b>Email:</b> {parsedData.email}</p>
-          <p><b>Phone Number:</b> {parsedData.phoneNumber}</p>
-          <p><b>Selected Country:</b> {parsedData.selectedCountry}</p>
-          <p><b>Departure Date:</b> {parsedData.departureDate}</p>
-          <p><b>Return Date:</b> {parsedData.returnDate}</p>
-          <p><b>Address:</b> {parsedData.Address}</p>
+          <p><b>Ism:</b> {parsedData.firstName}</p>
+          <p><b>Familiya:</b> {parsedData.lastName}</p>
+          <p><b>Otasini ismi:</b> {parsedData.Patronymic}</p>
+          <p><b>Elektron pochta:</b> {parsedData.email}</p>
+          <p><b>Telefon raqam:</b> {parsedData.phoneNumber}</p>
+          <p><b>Sayohat:</b> {parsedData.selectedCountry}</p>
+          <p><b>Ketish sanasi:</b> {parsedData.departureDate}</p>
+          <p><b>Qaytish sanasi:</b> {parsedData.returnDate}</p>
+          <p><b>Manzil:</b> {parsedData.Address}</p>
         </div>
         <div className="bottom"><br />
-          <p><input className="checkbox" type="checkbox" checked={isChecked} onChange={() => setIsChecked(!isChecked)} /> <small>My information is correct!</small></p>
+          <p><input className="checkbox" type="checkbox" checked={isChecked} onChange={() => setIsChecked(!isChecked)} /> <small>Meni malumotlarim to'gri!</small></p>
           <Link to={isChecked ? "/pay" : "#"}>
-            <button type="submit" onClick={sentTelegramBot} className="con-buttom">Payment</button>
+            <button type="submit" onClick={sentTelegramBot} className="con-buttom">To'lov</button>
           </Link><br /><br />
-          <Link to={"/offer"} className="change-buttom">Change information</Link><br /><br />
+          <Link to={"/offer"} className="change-buttom">Malumotlarni o'zgartirish</Link><br /><br />
         </div>
       </div>
     </div>

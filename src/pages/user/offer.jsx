@@ -140,8 +140,8 @@ function Offer() {
     <div className="offer">
       <div className="container">
         <center>
-          <h1 className="offer-h1">Select your travel country and travel</h1>
-          <p className="center-p">Please enter the correct information</p>
+          <h1 className="offer-h1">Sayohat qilmoqchi bo'lgan davatni tanlang va sayohat qiling</h1>
+          <p className="center-p">Iltimos malumotlarnigizni tog'ri to'diring!</p>
         </center>
         <div className="offer-form">
           <div className="offer-select">
@@ -151,7 +151,7 @@ function Offer() {
               onChange={handleCountryChange}
               value={selectedCountry}
             >
-              <option value="">Select a country</option>
+              <option value="">Davlatlarni belgilang</option>
               {countries.map((country) => (
                 <option key={country.id} value={country.name}>
                   {country.name}
@@ -161,7 +161,7 @@ function Offer() {
             <hr />
           </div>
           <p>
-            Departure from{" "}
+            Ketish{" "}
             <input
               type="date"
               value={departureDate}
@@ -172,7 +172,7 @@ function Offer() {
             />
           </p>
           <p>
-            Till{" "}
+            Qaytish{" "}
             <input
               type="date"
               value={returnDate}
@@ -184,42 +184,42 @@ function Offer() {
           </p>
           <hr />
           <p>
-            Person{" "}
+            Turda nechta odam sayohat qilmoqchi?{" "}
             <input
               type="number"
               min={"1"}
-              placeholder="Ages 6 and up!"
+              placeholder="6 yoshdan kattalar!"
               onChange={handlePersonChange}
             />
           </p>
           <hr />
           <input
             type="text"
-            placeholder="First name"
+            placeholder="Ism"
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
           />
           <input
             type="text"
-            placeholder="Last name"
+            placeholder="Familiya"
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
           />
           <input
             type="text"
-            placeholder="Patronymic"
+            placeholder="Otangizni ismi"
             value={Patronymic}
             onChange={(e) => setPatronymic(e.target.value)}
           />
           <input
             type="email"
-            placeholder="Your email"
+            placeholder="Electron pochtangiz"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
           <input
             type="text"
-            placeholder="Your phone +998..."
+            placeholder="Telefon raqam +998..."
             value={phoneNumber}
             onChange={(e) => {
               const inputText = e.target.value;
@@ -230,14 +230,14 @@ function Offer() {
           <hr />
           <input
             type="text"
-            placeholder="Address"
+            placeholder="Manzil"
             value={Address}
             onChange={handleAddressChange}
           />
           <div className="offer-tour-price">
             {isFormFilled && selectedCountry && (
               <h5>
-                Price for {selectedCountry}: ${price}
+                Tur narxi uchun {selectedCountry}: ${price}
               </h5>
             )}
           </div>
@@ -245,11 +245,11 @@ function Offer() {
           <div className="offer-buttom">
             {isFormFilled ? (
               <Link to={"/connect"}>
-                <button className="offer-button">Buying now</button>
+                <button className="offer-button">To'lov</button>
               </Link>
             ) : (
               <button className="offer-button" disabled>
-                Fill in the form first
+                Iltimos avval malumotlarni to'ldiring!
               </button>
             )}
           </div>

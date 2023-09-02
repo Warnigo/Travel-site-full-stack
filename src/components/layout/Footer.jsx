@@ -63,8 +63,8 @@ function Footer() {
         </div>
         <div className="footer-bottom">
           <p>
-            © 2023 Vego-travel, company. All Rights Reserved. Updeted(08/2023).
-            Builder Warnigo and Mukam.
+            © 2023 Vego-travel, kompaniya. Barcha huquqlar himoyalangan. Yangilangan (08/2023).
+            Quruvchi Warnigo va Mukam.
           </p>
         </div>
       </div>
