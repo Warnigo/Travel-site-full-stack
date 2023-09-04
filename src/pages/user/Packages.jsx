@@ -97,10 +97,10 @@ const Packages = () => {
                   <Link to={`/country/${item.id}/country-about`} key={item.id}>
                     <div className="package-item">
                       <img src={item.img} alt="" />
-                      <h3>{item.name}</h3>
+                      <h3>{item.name_uz}</h3>
                       <p>
-                        {item.description.split(" ").slice(0, 10).join(" ")}
-                        {item.description.split(" ").length > 10 ? "..." : ""}
+                        {item.description_uz.split(" ").slice(0, 10).join(" ")}
+                        {item.description_uz.split(" ").length > 10 ? "..." : ""}
                       </p>
 
                       <button className="price-p">Narxi: ${item.price}</button>

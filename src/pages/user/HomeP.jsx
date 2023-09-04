@@ -299,7 +299,7 @@ const HomeP = () => {
                       sizni ajoyib sarguzashtlar kutmoqda.
                     </p>
                     <div class="destination-list-content-price">
-                      Tur narxi: <span>$255.00</span>
+                      Tur narxi: <span>$299.00</span>
                     </div>
                   </div>
                 </div>
@@ -320,7 +320,7 @@ const HomeP = () => {
                       ajoyib sarguzashtlarga to'la sizni kutmoqda.
                     </p>
                     <div class="destination-list-content-price">
-                      Tur narxi: <span>$639.00</span>
+                      Tur narxi: <span>$540.00</span>
                     </div>
                   </div>
                 </div>
@@ -341,7 +341,7 @@ const HomeP = () => {
                       sizni ajoyib sarguzashtlar kutmoqda.
                     </p>
                     <div class="destination-list-content-price">
-                      Tur narxi: <span>$320.00</span>
+                      Tur narxi: <span>$299.00</span>
                     </div>
                   </div>
                 </div>
@@ -362,7 +362,7 @@ const HomeP = () => {
                       sizni ajoyib sarguzashtlar kutmoqda.
                     </p>
                     <div class="destination-list-content-price">
-                      Tur narxi: <span>$680.00</span>
+                      Tur narxi: <span>$342.00</span>
                     </div>
                   </div>
                 </div>
@@ -383,7 +383,7 @@ const HomeP = () => {
                       ajoyib sarguzashtlarga to'la sizni kutmoqda.
                     </p>
                     <div class="destination-list-content-price">
-                      Tur narxi: <span>$670.00</span>
+                      Tur narxi: <span>$599.00</span>
                     </div>
                   </div>
                 </div>
@@ -404,7 +404,7 @@ const HomeP = () => {
                       sizni ajoyib sarguzashtlar kutmoqda.
                     </p>
                     <div class="destination-list-content-price">
-                      Tur narxi: <span>$690.00</span>
+                      Tur narxi: <span>$350.00</span>
                     </div>
                   </div>
                 </div>
