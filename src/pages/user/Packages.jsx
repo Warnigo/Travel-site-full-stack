@@ -2,13 +2,15 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { request_all } from "../../server/server";
 import { Spin, Pagination, Empty } from "antd";
+import { useTranslation } from 'react-i18next';
 import "../style/packages.css";
 
 const Packages = () => {
+  const { t, i18n } = useTranslation(); // or const [t, i18n] = useTranslation();
   const [searchText, setSearchText] = useState("");
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
-  const [filteredItems, setFilteredItems] = useState([]); // O'zgarishi kerak
+  const [filteredItems, setFilteredItems] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(12);
   const [isLoading, setIsLoading] = useState(true);
@@ -25,7 +27,7 @@ const Packages = () => {
   useEffect(() => {
     if (searchText !== "") {
       const filtered = data.filter((item) =>
-        item.name.toLowerCase().includes(searchText.toLowerCase())
+        item.name_uz.toLowerCase().includes(searchText.toLowerCase())
       );
       setFilteredData(filtered);
     } else {
@@ -47,17 +49,22 @@ const Packages = () => {
   };
 
   const fetchData = () => {
-    request_all
-      .get("country-all")
-      .then((response) => {
-        setData(response.data);
-        setFilteredData(response.data);
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        console.error("Ma'lumotlarni olishda xatolik yuz berdi:", error);
-        setIsLoading(false);
-      });
+    try {
+      request_all
+        .get("country-all")
+        .then((response) => {
+          setData(response.data);
+          setFilteredData(response.data);
+          setIsLoading(false);
+        })
+        .catch((error) => {
+          console.error("Ma'lumotlarni olishda xatolik yuz berdi:", error);
+          setIsLoading(false);
+        });
+    } catch (error) {
+      console.error("Ma'lumotlarni olishda xatolik yuz berdi:", error);
+      setIsLoading(false);
+    }
   };
 
   const handlePageChange = (page) => {
@@ -70,13 +77,13 @@ const Packages = () => {
         <form className="header-form">
           <input
             type="text"
-            placeholder="Davlatlarni qidiring..."
+            placeholder={t("homeP.header-search-pl")}
             value={searchText}
             onChange={handleSearchChange}
           />
           <Link to="?" className="btn-link">
             <button className="btn">
-              <i className="ri-search-line"></i> Qidirish
+              <i className="ri-search-line"></i> {t("homeP.header-search-buttom")}
             </button>
           </Link>
         </form>
@@ -103,7 +110,7 @@ const Packages = () => {
                         {item.description_uz.split(" ").length > 10 ? "..." : ""}
                       </p>
 
-                      <button className="price-p">Narxi: ${item.price}</button>
+                      <button className="price-p">{t("homeP.pack-price")} ${item.price}</button>
                     </div>
                   </Link>
                 ))
@@ -125,3 +132,4 @@ const Packages = () => {
 };
 
 export default Packages;
+

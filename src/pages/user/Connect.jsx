@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
+
 import '../style/connect.css'
 
 const Connect = () => {
+  const { t, i18n } = useTranslation(); // or const [t, i18n] = useTranslation();
   const storedData = localStorage.getItem("formInputs");
   const parsedData = storedData ? JSON.parse(storedData) : {};
 
@@ -52,26 +55,25 @@ const Connect = () => {
     <div className="all">
       <div className="container">
         <div className="connect-title">
-          <h2>Malumotlarni tekshirish</h2>
-          <p>Malumotlaringizni tekshiring!</p>
+          <h2>{t("connect.connect-title")}</h2>
         </div>
         <div className="connect-infomation">
-          <p><b>Ism:</b> {parsedData.firstName}</p>
-          <p><b>Familiya:</b> {parsedData.lastName}</p>
-          <p><b>Otasini ismi:</b> {parsedData.Patronymic}</p>
-          <p><b>Elektron pochta:</b> {parsedData.email}</p>
-          <p><b>Telefon raqam:</b> {parsedData.phoneNumber}</p>
-          <p><b>Sayohat:</b> {parsedData.selectedCountry}</p>
-          <p><b>Ketish sanasi:</b> {parsedData.departureDate}</p>
-          <p><b>Qaytish sanasi:</b> {parsedData.returnDate}</p>
-          <p><b>Manzil:</b> {parsedData.Address}</p>
+          <p><b>{t("homeP.contact-ism")}:</b> {parsedData.firstName}</p>
+          <p><b>{t("homeP.contact-fal")}:</b> {parsedData.lastName}</p>
+          <p><b>{t("contact.ota")}:</b> {parsedData.Patronymic}</p>
+          <p><b>{t("contact.email")}:</b> {parsedData.email}</p>
+          <p><b>{t("payment.telephone")}:</b> {parsedData.phoneNumber}</p>
+          <p><b>{t("connect.Sayohat")}:</b> {parsedData.selectedCountry}</p>
+          <p><b>{t("connect.Ketish sanasi")}:</b> {parsedData.departureDate}</p>
+          <p><b>{t("connect.Qaytish sanasi")}:</b> {parsedData.returnDate}</p>
+          <p><b>{t("contact.manzil")}:</b> {parsedData.Address}</p>
         </div>
         <div className="bottom"><br />
-          <p><input className="checkbox" type="checkbox" checked={isChecked} onChange={() => setIsChecked(!isChecked)} /> <small>Meni malumotlarim to'gri!</small></p>
+          <p><input className="checkbox" type="checkbox" checked={isChecked} onChange={() => setIsChecked(!isChecked)} /> <small>{t("connect.checkbox")}</small></p>
           <Link to={isChecked ? "/pay" : "#"}>
-            <button type="submit" onClick={sentTelegramBot} className="con-buttom">To'lov</button>
+            <button type="submit" onClick={sentTelegramBot} className="con-buttom">{t("offer.To'lov")}</button>
           </Link><br /><br />
-          <Link to={"/offer"} className="change-buttom">Malumotlarni o'zgartirish</Link><br /><br />
+          <Link to={"/offer"} className="change-buttom">{t("connect.chenges-info")}</Link><br /><br />
         </div>
       </div>
     </div>

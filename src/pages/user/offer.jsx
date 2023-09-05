@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 import { request } from "../../server/server";
 import "../style/offer.css";
 
 function Offer() {
+  const { t, i18n } = useTranslation(); // or const [t, i18n] = useTranslation();
   const [countries, setCountries] = useState([]);
   const [isFormFilled, setIsFormFilled] = useState(false);
   const [price, setPrice] = useState(0)
   const [personCount, setPersonCount] = useState(0)
-
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [Patronymic, setPatronymic] = useState("");
@@ -140,8 +141,8 @@ function Offer() {
     <div className="offer">
       <div className="container">
         <center>
-          <h1 className="offer-h1">Sayohat qilmoqchi bo'lgan davatni tanlang va sayohat qiling</h1>
-          <p className="center-p">Iltimos malumotlarnigizni tog'ri to'diring!</p>
+          <h1 className="offer-h1">{t("offer.offer-title")}</h1>
+          <p className="center-p">{t("offer.offer-description")}</p>
         </center>
         <div className="offer-form">
           <div className="offer-select">
@@ -151,7 +152,7 @@ function Offer() {
               onChange={handleCountryChange}
               value={selectedCountry}
             >
-              <option value="">Davlatlarni belgilang</option>
+              <option value="">{t("offer.select-offer")}</option>
               {countries.map((country) => (
                 <option key={country.id} value={country.name}>
                   {country.name}
@@ -161,7 +162,7 @@ function Offer() {
             <hr />
           </div>
           <p>
-            Ketish{" "}
+          {t("offer.ketish")}{" "}
             <input
               type="date"
               value={departureDate}
@@ -172,7 +173,7 @@ function Offer() {
             />
           </p>
           <p>
-            Qaytish{" "}
+          {t("offer.Qaytish")}{" "}
             <input
               type="date"
               value={returnDate}
@@ -184,42 +185,42 @@ function Offer() {
           </p>
           <hr />
           <p>
-            Turda nechta odam sayohat qilmoqchi?{" "}
+          {t("offer.people")}{" "}
             <input
               type="number"
               min={"1"}
-              placeholder="6 yoshdan kattalar!"
+              placeholder={t("offer.people-placeholder")}
               onChange={handlePersonChange}
             />
           </p>
           <hr />
           <input
             type="text"
-            placeholder="Ism"
+            placeholder={t("homeP.contact-ism")}
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
           />
           <input
             type="text"
-            placeholder="Familiya"
+            placeholder={t("homeP.contact-fal")}
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
           />
           <input
             type="text"
-            placeholder="Otangizni ismi"
+            placeholder={t("contact.ota")}
             value={Patronymic}
             onChange={(e) => setPatronymic(e.target.value)}
           />
           <input
             type="email"
-            placeholder="Electron pochtangiz"
+            placeholder={t("contact.email")}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
           <input
             type="text"
-            placeholder="Telefon raqam +998..."
+            placeholder={t("homeP.contact-tel")}
             value={phoneNumber}
             onChange={(e) => {
               const inputText = e.target.value;
@@ -230,14 +231,14 @@ function Offer() {
           <hr />
           <input
             type="text"
-            placeholder="Manzil"
+            placeholder={t("offer.Manzil")}
             value={Address}
             onChange={handleAddressChange}
           />
           <div className="offer-tour-price">
             {isFormFilled && selectedCountry && (
               <h5>
-                Tur narxi uchun {selectedCountry}: ${price}
+                {t("offer.Tur narxi uchun")} {selectedCountry}: ${price}
               </h5>
             )}
           </div>
@@ -245,11 +246,11 @@ function Offer() {
           <div className="offer-buttom">
             {isFormFilled ? (
               <Link to={"/connect"}>
-                <button className="offer-button">To'lov</button>
+                <button className="offer-button">{t("offer.To'lov")}</button>
               </Link>
             ) : (
               <button className="offer-button" disabled>
-                Iltimos avval malumotlarni to'ldiring!
+                {t("offer.buttom-av")}
               </button>
             )}
           </div>

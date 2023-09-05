@@ -42,7 +42,8 @@
         "contact-tel": "Telefon raqam +998...",
         "contact-email": "Electron pochta",
         "contact-com": "Izoh (Ixtiyoriy)",
-        "contact-buttom": "Yuborish"
+        "contact-buttom": "Yuborish",
+        "pack-price": "Narxi:"
     },
     "footer": {
         "company": "Komaniya",
@@ -55,11 +56,53 @@
         "builder": "© 2023 Vego-travel, kompaniya. Barcha huquqlar himoyalangan. Yangilangan (09/2023). Quruvchi Warnigo va Mukam."
     },
     "contact": {
-        "manzil": "Bizning manzil:",
+        "manzil": "Bizning manzil",
         "manzil-name": "Chirchiq, 10-44-21 uy",
         "tel-name": "Bizni telefon raqamlarimiz:",
         "teskor": "Tezkor aloqa:",
         "email": "Electron pochta",
         "ota": "O'tangizni ismi"
+    },
+    "country": {
+        "Tur haqida": "Tur haqida",
+        "Tafsilotlar": "Tafsilotlar",
+        "batafsil": "Batafsil ma'lumot uchun biz bilan bog'laning!",
+        "Turnisotibolish": "Turni sotib olish"
+    },
+    "offer": {
+        "offer-title": "Sayohat qilmoqchi bo'lgan davatni tanlang va sayohat qiling",
+        "offer-description": "Iltimos malumotlarnigizni tog'ri to'diring!",
+        "select-offer": "Davlatlarni belgilang",
+        "ketish": "Ketish",
+        "Qaytish": "Qaytish",
+        "people": "Turda nechta odam sayohat qilmoqchi?",
+        "people-placeholder": "6 yoshdan kattalar!",
+        "Manzil": "Manzil",
+        "Tur narxi uchun": "Tur narxi uchun",
+        "To'lov": "To'lov",
+        "buttom-av": "Iltimos avval malumotlarni to'ldiring!"
+    },
+    "connect": {
+        "connect-title": "Malumotlaringiz tekshirish",
+        "Sayohat": "Sayohat",
+        "Ketish sanasi": "Ketish sanasi",
+        "Qaytish sanasi": "Qaytish sanasi",
+        "checkbox": "Meni malumotlarim to'gri!",
+        "chenges-info": "Malumotlarni o'zgartirish"
+    },
+    "payment": {
+        "Orqaga": "Orqaga qaytish",
+        "Sharnomasanasi": "Sharnoma sanasi",
+        "pay-description": "sayohat uchun sharnoma",
+        "Ijrochi": "Ijrochi",
+        "accaund": "Account raqami",
+        "bank": "Bank",
+        "bank-nem": "Bank koddi",
+        "adress": "Chirchiq city, 10-44-21 uy",
+        "telephone": "Telefon raqami",
+        "buyurtmalar": "Buyurtma qilingan xizmatlar ro'yxati",
+        "Turistik xizmatlar": "Turistik xizmatlar",
+        "hamm-narxi": "Umumiy narx",
+        "pay": "To'lov qilish uchun"
     }
 }

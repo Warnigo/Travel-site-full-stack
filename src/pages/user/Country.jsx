@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { request } from "../../server/server";
+import { useTranslation } from 'react-i18next';
 import { Spin } from "antd";
 import "../style/country.css";
 
 const Country = () => {
+  const { t, i18n } = useTranslation(); // or const [t, i18n] = useTranslation();
   const { id } = useParams();
   const [countryData, setCountryData] = useState(null);
   const [showImgSrc, setShowImgSrc] = useState("");
@@ -66,27 +68,27 @@ const Country = () => {
               ))}
             </div>
             <div className="country-description-div">
-              <h3>Tur haqida</h3>
+              <h3>{t("country.Tur haqida")}</h3>
               <p className="country-description">{countryData.description_uz}</p>
               <hr />
-              <h3>Tafsilotlar</h3>
+              <h3>{t("country.Tafsilotlar")}</h3>
               <p className="country-description1">{countryData.description1_uz}</p>
               <hr />
               <div className="country-contact">
-                <p>Batafsil ma'lumot uchun biz bilan bog'laning!</p>
+                <p>{t("country.batafsil")}</p>
               </div>
             </div>
           </div>
           <div className="country-price-div">
             <hr />
             <p>
-              Tur narxi: <span>${countryData.price}</span>
+              {t("homeP.price-description")} <span>${countryData.price}</span>
             </p>
             <hr />
           </div>
           <div className="country-buttom">
             <Link to={"/offer"} className="link">
-              <button type="submit">Tur  sotib olish</button>
+              <button type="submit">{t("country.Turnisotibolish")}</button>
             </Link>
           </div>
         </div>

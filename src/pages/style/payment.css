@@ -33,6 +33,12 @@
     border-radius: 7px;
     width: 250px;
     height: 40px;
+    margin-left: 5px;
+}
+
+.pay-link-lng button {
+    width: 50px;
+    text-align: center;
 }
 
 .payment-information {

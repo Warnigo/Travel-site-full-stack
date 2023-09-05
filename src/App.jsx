@@ -19,7 +19,6 @@ function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="packages" element={<Packages />} />
           <Route path="offer" element={<Offer />} />
-          
           <Route path="country/:id/country-about" element={<Country />} />
           <Route path="connect" element={<Connect />} />
         </Route>
