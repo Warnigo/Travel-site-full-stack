@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { request } from "../../server/server";
 import { Link } from "react-router-dom";
 import "./Header.scss";
+import i18n from "i18next";
+import { useTranslation, Trans } from 'react-i18next';
 
 function Header() {
   const [countries, setCountries] = useState([]);
@@ -87,6 +89,14 @@ function Header() {
   const asiaCountries = countries.slice(12, 24);
   const vizaCountries = countries.slice(24, 36);
 
+  // translation funtion {
+  const { t } = useTranslation();
+
+  const handleClick = (lang) => {
+    i18n.changeLanguage(lang);
+  }
+  // translation funtion }
+
   return (
     <div className="Header">
       <nav>
@@ -97,7 +107,7 @@ function Header() {
             </Link>
             <div className="nav-menu-wrapper">
               <div className="navbar-menu-header">
-                <p className="navbar-menu-title">Menu</p>
+                {/* <p className="navbar-menu-title">Menu</p> */}
                 <Link
                   to={"/"}
                   data-dismiss="navbar-menu"
@@ -113,7 +123,7 @@ function Header() {
                     data-toggle="navbar-submenu"
                     data-target="#tour"
                   >
-                    Davlatlar <i className="ri-arrow-down-s-line"></i>
+                    {t("header.davlatlar")}<i className="ri-arrow-down-s-line"></i>
                   </Link>
                   <div className="navbar-submenu-wrapper">
                     <div className="navbar-submenu-menu-wrapper" id="tour">
@@ -123,7 +133,7 @@ function Header() {
                           data-dismiss="navbar-submenu"
                           className="navbar-submenu-back"
                         >
-                          Orqaga
+                          {t("header.Orqaga")}
                         </Link>
                         <Link
                           to={"/"}
@@ -141,7 +151,7 @@ function Header() {
                             data-toggle="navbar-submenu-content navbar-submenu"
                             data-target="#tour-india"
                           >
-                            Yevropa <i className="ri-arrow-right-s-line"></i>
+                            {t("header.yevropa")} <i className="ri-arrow-right-s-line"></i>
                           </Link>
                         </li>
                         <li>
@@ -150,7 +160,7 @@ function Header() {
                             data-toggle="navbar-submenu-content navbar-submenu"
                             data-target="#tour-sri"
                           >
-                            Osio <i className="ri-arrow-right-s-line"></i>
+                            {t("header.osio")} <i className="ri-arrow-right-s-line"></i>
                           </Link>
                         </li>
                         <li>
@@ -159,7 +169,7 @@ function Header() {
                             data-toggle="navbar-submenu-content navbar-submenu"
                             data-target="#tour-japan"
                           >
-                            Viza <i className="ri-arrow-right-s-line"></i>
+                            {t("header.viza")} <i className="ri-arrow-right-s-line"></i>
                           </Link>
                         </li>
                       </ul>
@@ -174,7 +184,7 @@ function Header() {
                           data-dismiss="navbar-submenu"
                           className="navbar-submenu-back"
                         >
-                          Orqaga
+                          {t("header.Orqaga")}
                         </Link>
                         <Link
                           to={"/"}
@@ -184,7 +194,7 @@ function Header() {
                           &times;
                         </Link>
                       </div>
-                      <div className="navbar-submenu-content-title">Yevropa</div>
+                      <div className="navbar-submenu-content-title">{t("header.yevropa")}</div>
                       <ul className="navbar-submenu-content">
                         {europeCountries.map((country) => (
                           <li key={country.id}>
@@ -205,7 +215,7 @@ function Header() {
                           data-dismiss="navbar-submenu"
                           className="navbar-submenu-back"
                         >
-                          Orqaga
+                          {t("header.Orqaga")}
                         </Link>
                         <Link
                           to={"/"}
@@ -215,7 +225,7 @@ function Header() {
                           &times;
                         </Link>
                       </div>
-                      <div className="navbar-submenu-content-title">Osio</div>
+                      <div className="navbar-submenu-content-title">{t("header.osio")}</div>
                       <ul className="navbar-submenu-content">
                         {asiaCountries.map((country) => (
                           <li key={country.id}>
@@ -236,7 +246,7 @@ function Header() {
                           data-dismiss="navbar-submenu"
                           className="navbar-submenu-back"
                         >
-                          Orqaga
+                          {t("header.Orqaga")}
                         </Link>
                         <Link
                           to={"/"}
@@ -246,7 +256,7 @@ function Header() {
                           &times;
                         </Link>
                       </div>
-                      <div className="navbar-submenu-content-title">Viza</div>
+                      <div className="navbar-submenu-content-title">{t("header.viza")}</div>
                       <ul className="navbar-submenu-content">
                         {vizaCountries.map((country) => (
                           <li key={country.id}>
@@ -260,10 +270,20 @@ function Header() {
                   </div>
                 </li>
                 <li>
-                  <Link to={"/packages"}>Turlar</Link>
+                  <Link to={"/packages"}>
+                    {t("header.tur")}
+                    </Link>
                 </li>
                 <li>
-                  <Link to={"/Contact"}>Bog'lanish</Link>
+                  <Link to={"/Contact"}>
+                    {t("header.bog'lanish")}
+                  </Link>
+                </li>
+                <li>
+                  <button className="lng-buttoms" onClick={() => handleClick("uz")}>Uz</button>
+                </li>
+                <li>
+                  <button className="lng-buttoms" onClick={() => handleClick("ru")}>Ru</button>
                 </li>
               </ul>
             </div>

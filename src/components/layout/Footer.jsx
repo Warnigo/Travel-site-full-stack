@@ -1,17 +1,19 @@
 import React from "react";
 import "./Footer.scss";
 import { Link } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 
-import payme from "../../assets/icons/payme-logo.svg"
+// import payme from "../../assets/icons/payme-logo.svg"
 
 function Footer() {
+  const { t, i18n } = useTranslation(); // or const [t, i18n] = useTranslation();
   return (
     <footer>
       <div className="container">
         <div className="footer-top">
           <Link to="/" style={{ color: "black" }}>
             <h4 className="footer-logo" style={{ fontWeight: 600 }}>
-              Vego-travel <small>kopaniya</small>
+              Vego-travel <small>{t("footer.company")}</small>
             </h4>
           </Link>
           <div className="footer-social">
@@ -28,10 +30,10 @@ function Footer() {
         </div>
         <div className="footer-links">
           <div>
-            <div className="footer-links-title">Kopaniya</div>
+            <div className="footer-links-title">{t("footer.company")}</div>
             <ul className="footer-links-list">
               <li>
-                <Link to="/">Kompaniya haqida</Link>
+                <Link to="/">{t("footer.company-about")}</Link>
               </li>
               <li>
                 <Link to={"tel:+998337110885"}>+998 33 711 08 85</Link>
@@ -42,29 +44,28 @@ function Footer() {
             </ul>
           </div>
           <div>
-            <div className="footer-links-title">Tafsilotlar</div>
+            <div className="footer-links-title">{t("footer.Tafsilotlar")}</div>
             <ul className="footer-links-list">
               <li>
-                <Link to="/packages">Services</Link>
+                <Link to="/packages">{t("footer.Services")}</Link>
               </li>
               <li>
-                <Link to="/contact">Bo'glanish | malumot</Link>
+                <Link to="/contact">{t("footer.info-footer")}</Link>
               </li>
             </ul>
           </div>
           <div>
-            <div className="footer-links-title">To'lov usuli</div>
+            <div className="footer-links-title">{t("footer.To'lov usuli")}</div>
             <ul className="footer-links-list">
               <li>
-                <Link to="/offer">Payme</Link>
+                <Link to="/offer">{t("footer.Payme")}</Link>
               </li>
             </ul>
           </div>
         </div>
         <div className="footer-bottom">
           <p>
-            © 2023 Vego-travel, kompaniya. Barcha huquqlar himoyalangan. Yangilangan (08/2023).
-            Quruvchi Warnigo va Mukam.
+            {t("footer.builder")}
           </p>
         </div>
       </div>

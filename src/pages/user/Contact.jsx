@@ -1,8 +1,10 @@
 import '../style/contact.css'
 import React, { useEffect, Fragment, useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 
 const Contact = () => {
+  const { t, i18n } = useTranslation(); // or const [t, i18n] = useTranslation();
 
   // telegram client for contact button start
   const [firstName, setFirstName] = useState('');
@@ -47,29 +49,29 @@ const Contact = () => {
       <div className="container">
         <div className='details'>
           <div className="contact-details">
-            <h4>Bizning manzil:</h4>
-            <p>Chirchiq, 10-44-21 uy</p>
+            <h4>{t("contact.manzil")}</h4>
+            <p>{t("contact.manzil-name")}</p>
 
-            <h4>Bizni telefon raqamlarimiz:</h4>
+            <h4>{t("contact.tel-name")}</h4>
             <p>+998(33) 711 08 85</p>
 
-            <h4>Tezkor aloqa:</h4>
-            <Link to={"mailto:vegotravel001@gmail.com"}><p className='p'>Electron pochta</p></Link>
-            <Link to={"https://t.me/vego_travel"}><p className='p'>Telegram</p></Link>
+            <h4>{t("contact.teskor")}</h4>
+            <Link to={"mailto:vegotravel001@gmail.com"}><p className='p'>{t("contact.email")}</p></Link>
+            <Link to={"https://t.me/vego_travel"}><p className='p'>{t("contact.Telegram")}</p></Link>
             <Link to={"https://www.facebook.com/profile.php?id=61550935043546&mibextid=9R9pXO"}><p className='p'>Facebook</p></Link>
             <Link to={"https://www.instagram.com/vego.travel"}><p className='p'>Instagram</p></Link>
 
           </div>
         </div>
         <div>
-          <h3>Ma'lumotlaringizni to'ldiring va biz siz bilan bog'lanamiz.</h3>
+          <h3>{t("homeP.contact-tele")}</h3>
           <div className="input-contact">
-            <input type="text" placeholder="isim" onChange={e => setFirstName(e.target.value)} />
-            <input type="text" placeholder="Familiya" onChange={e => setLastName(e.target.value)} />
-            <input type="text" placeholder="O'tangizni ismi" onChange={e => setPatronymic(e.target.value)} />
+            <input type="text" placeholder={t("homeP.contact-ism")} onChange={e => setFirstName(e.target.value)} />
+            <input type="text" placeholder={t("homeP.contact-fal")} onChange={e => setLastName(e.target.value)} />
+            <input type="text" placeholder={t("contact.ota")} onChange={e => setPatronymic(e.target.value)} />
             <input
               type="text"
-              placeholder="Telefon raqami +998..."
+              placeholder={t("homeP.contact-tel")}
               value={phoneNumber}
               onChange={(e) => {
                 const inputText = e.target.value;
@@ -77,16 +79,16 @@ const Contact = () => {
                 setPhoneNumber(sanitizedText);
               }}
             />
-            <input type="email" placeholder="Electron pochta" onChange={e => setEmail(e.target.value)} />
+            <input type="email" placeholder={t("contact.email")} onChange={e => setEmail(e.target.value)} />
             <textarea
               name="textarea"
               id="textarea"
               cols="30"
               rows="5"
-              placeholder="Izoh (Ixtiyoriy)"
+              placeholder={t("homeP.contact-com")}
               onChange={e => setComment(e.target.value)}
             ></textarea>
-            <button type="submit" className="contact-butom" onClick={sendToTelegram}>Yuborish</button>
+            <button type="submit" className="contact-butom" onClick={sendToTelegram}>{t("homeP.contact-buttom")}</button>
           </div>
         </div>
       </div>

@@ -618,4 +618,8 @@ textarea {
   .about-hr {
     display: block;
   }
+  .lng-buttoms {
+    width: 90%;
+    
+  }
 }

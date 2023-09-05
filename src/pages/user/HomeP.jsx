@@ -1,5 +1,7 @@
 import React, { useEffect, Fragment, useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
+import i18n from "i18next";
 import { request } from "../../server/server";
 
 import home from "../../assets/images/mohammed-bg.jpg";
@@ -21,6 +23,8 @@ import dp5 from "../../assets/images/other/london.jpg";
 import dp6 from "../../assets/images/istanbull.jpg";
 
 const HomeP = () => {
+  const { t, i18n } = useTranslation(); // or const [t, i18n] = useTranslation();
+
   const [searchText, setSearchText] = useState("");
   const [countries, setCountries] = useState([]);
   const [filteredCountries, setFilteredCountries] = useState([]);
@@ -155,15 +159,15 @@ const HomeP = () => {
             </div>
             <div className="header-wrapper">
               <h2 className="header-title">
-                Dunyoni bir vaqtning o'zida bir sarguzasht bilan kashf eting
+                {t("homeP.header-search")}
               </h2>
               <p className="header-description">
-                Ekskursiya bilan dunyoni kashf eting. Yangi yo'nalishlarni o'rganing va keyingi sayohatingizni bugun bron qiling.
+                {t("homeP.header-search-p")}
               </p>
               <form className="header-form">
                 <input
                   type="text"
-                  placeholder="Davlatlarni qidiring..."
+                  placeholder={t("homeP.header-search-pl")}
                   value={searchText}
                   onChange={(e) => {
                     const newValue = e.target.value;
@@ -174,7 +178,7 @@ const HomeP = () => {
                 <div className="dropdown">
                   <Link to={"/packages"}>
                     <button type="submit" className="btn">
-                      <i className="ri-search-line"></i> Qidirish
+                      <i className="ri-search-line"></i> {t("homeP.header-search-buttom")}
                     </button>
                   </Link>
                 </div>
@@ -212,9 +216,9 @@ const HomeP = () => {
       <section id="section-2">
         <div className="container">
           <div className="city-images-txt">
-            <h1>O'tkazib yubormaslik kerak bo'lgan joylar</h1>
+            <h1>{t("homeP.section-h1")}</h1>
             <p>
-              Ushbu suratlardagi joylarni o'z ko'zingiz bilan ko'rish imkoniga egasiz. Rivojlangan shaharga yoki ajoyib tabiatga ega mamlakatga sayohat qilishni xohlaysizmi, o'zingiz qaror qiling va biz bilan bog'laning!
+              {t("homeP.section-p")}
             </p>
           </div>
           <div className="city-images-img">
@@ -237,10 +241,10 @@ const HomeP = () => {
       <section className="destination">
         <div className="container">
           <div className="title-ds">
-            <h2 className="destination-title">Eng yaxshi manzillar</h2>
+            <h2 className="destination-title">{t("homeP.section-description")}</h2>
             <Link to={"/packages"} style={{ color: "black" }}>
               <h3 className="destination-more">
-                Ko'proq <i className="ri-arrow-down-s-line"></i>
+                {t("homeP.section-more")} <i className="ri-arrow-down-s-line"></i>
               </h3>
             </Link>
           </div>
@@ -267,18 +271,18 @@ const HomeP = () => {
                 <div className="destination-list-card">
                   <div className="destination-list-top">
                     <img src={dp5} />
-                    <span className="destinations-list-top-tag">Ommabop</span>
+                    <span className="destinations-list-top-tag">{t("homeP.section-Ommabop")}</span>
                   </div>
                   <div className="destination-list-content">
                     <div className="destination-list-content-location">
                       <i className="ri-global-line"> </i>
-                      London, Angliya
+                      {t("homeP.London,Angliya")}
                     </div>
                     <p className="destination-list-content-title">
-                      Angliya poytaxti Londonda 5 kunlik sayohat. Sizni ajoyib sarguzashtlarga to'la sayohat kutmoqda.
+                      {t("homeP.location-London")}
                     </p>
                     <div class="destination-list-content-price">
-                      Tur narxi: <span>$670.00</span>
+                      {t("homeP.price-description")} <span>$670.00</span>
                     </div>
                   </div>
                 </div>
@@ -287,19 +291,18 @@ const HomeP = () => {
                 <div className="destination-list-card">
                   <div className="destination-list-top">
                     <img src={dp2} />
-                    <span className="destinations-list-top-tag">Ommabop</span>
+                    <span className="destinations-list-top-tag">{t("homeP.section-Ommabop")}</span>
                   </div>
                   <div className="destination-list-content">
                     <div className="destination-list-content-location">
                       <i className="ri-global-line"> </i>
-                      Pekin, Xitoy
+                      {t("homeP.Pekin,Xitoy")}
                     </div>
                     <p className="destination-list-content-title">
-                      Xitoy poytaxti Pekinda 6 kunlik sayohat. To'liq sayohat
-                      sizni ajoyib sarguzashtlar kutmoqda.
+                      {t("homeP.location-china")}
                     </p>
                     <div class="destination-list-content-price">
-                      Tur narxi: <span>$299.00</span>
+                      {t("homeP.price-description")} <span>$299.00</span>
                     </div>
                   </div>
                 </div>
@@ -308,19 +311,18 @@ const HomeP = () => {
                 <div className="destination-list-card">
                   <div className="destination-list-top">
                     <img src={dp6} />
-                    <span className="destinations-list-top-tag">Ommabop</span>
+                    <span className="destinations-list-top-tag">{t("homeP.section-Ommabop")}</span>
                   </div>
                   <div className="destination-list-content">
                     <div className="destination-list-content-location">
                       <i className="ri-global-line"> </i>
-                      Istanbul, Turkiya
+                      {t("homeP.Istanbul,Turkiya")}
                     </div>
                     <p className="destination-list-content-title">
-                      Turkiyaning Istanbull shahrida 5 kunlik sayohat. Sayohat
-                      ajoyib sarguzashtlarga to'la sizni kutmoqda.
+                     {t("homeP.location-Turkiya")}
                     </p>
                     <div class="destination-list-content-price">
-                      Tur narxi: <span>$540.00</span>
+                      {t("homeP.price-description")} <span>$540.00</span>
                     </div>
                   </div>
                 </div>
@@ -329,19 +331,18 @@ const HomeP = () => {
                 <div className="destination-list-card">
                   <div className="destination-list-top">
                     <img src={dp1} />
-                    <span className="destinations-list-top-tag">Ommabop</span>
+                    <span className="destinations-list-top-tag">{t("homeP.section-Ommabop")}</span>
                   </div>
                   <div className="destination-list-content">
                     <div className="destination-list-content-location">
                       <i className="ri-global-line"> </i>
-                      Abu Dabi, Dubai
+                      {t("homeP.AbuDabi,Dubai")}
                     </div>
                     <p className="destination-list-content-title">
-                      Dubay poytaxtida 4 kunlik sayohat. To'liq sayohat
-                      sizni ajoyib sarguzashtlar kutmoqda.
+                      {t("homeP.location-AbuDabi")}
                     </p>
                     <div class="destination-list-content-price">
-                      Tur narxi: <span>$299.00</span>
+                      {t("homeP.price-description")} <span>$299.00</span>
                     </div>
                   </div>
                 </div>
@@ -350,19 +351,18 @@ const HomeP = () => {
                 <div className="destination-list-card">
                   <div className="destination-list-top">
                     <img src={dp4} />
-                    <span className="destinations-list-top-tag">Ommabop</span>
+                    <span className="destinations-list-top-tag">{t("homeP.section-Ommabop")}</span>
                   </div>
                   <div className="destination-list-content">
                     <div className="destination-list-content-location">
                       <i className="ri-global-line"> </i>
-                      Rim, Italiya
+                      {t("homeP.Rim,Italiya")}
                     </div>
                     <p className="destination-list-content-title">
-                      Italiyaning Rim poytaxtiga 6 kunlik sayohat. To'liq sayohat
-                      sizni ajoyib sarguzashtlar kutmoqda.
+                      {t("homeP.location-Italiya")}
                     </p>
                     <div class="destination-list-content-price">
-                      Tur narxi: <span>$342.00</span>
+                      {t("homeP.price-description")} <span>$342.00</span>
                     </div>
                   </div>
                 </div>
@@ -371,19 +371,18 @@ const HomeP = () => {
                 <div className="destination-list-card">
                   <div className="destination-list-top">
                     <img src={dp3} />
-                    <span className="destinations-list-top-tag">Ommabop</span>
+                    <span className="destinations-list-top-tag">{t("homeP.section-Ommabop")}</span>
                   </div>
                   <div className="destination-list-content">
                     <div className="destination-list-content-location">
                       <i className="ri-global-line"> </i>
-                      Tbilisi, Gruziya
+                      {t("homeP.Tbilisi,Gruziya")}
                     </div>
                     <p className="destination-list-content-title">
-                      Gruziya poytaxti Tbilisida 8 kunlik sayohat. Sayohat
-                      ajoyib sarguzashtlarga to'la sizni kutmoqda.
+                      {t("homeP.location-Tbilisi")}
                     </p>
                     <div class="destination-list-content-price">
-                      Tur narxi: <span>$599.00</span>
+                      {t("homeP.price-description")} <span>$599.00</span>
                     </div>
                   </div>
                 </div>
@@ -392,19 +391,18 @@ const HomeP = () => {
                 <div className="destination-list-card">
                   <div className="destination-list-top">
                     <img src={dp} />
-                    <span className="destinations-list-top-tag">Ommabop</span>
+                    <span className="destinations-list-top-tag">{t("homeP.section-Ommabop")}</span>
                   </div>
                   <div className="destination-list-content">
                     <div className="destination-list-content-location">
                       <i className="ri-global-line"> </i>
-                      Vena, Avstriya
+                     {t("homeP.Vena,Avstriya")}
                     </div>
                     <p className="destination-list-content-title">
-                      Avstriyaning Vena shahriga 7 kunlik sayohat. To'liq sayohat
-                      sizni ajoyib sarguzashtlar kutmoqda.
+                      {t("homeP.location-Vena")}
                     </p>
                     <div class="destination-list-content-price">
-                      Tur narxi: <span>$350.00</span>
+                      {t("homeP.price-description")} <span>$350.00</span>
                     </div>
                   </div>
                 </div>
@@ -416,7 +414,7 @@ const HomeP = () => {
       </section>
       <section className="section-about">
         <div className="container">
-          <h1 className="about-h1">Kompaniya haqida</h1>
+          <h1 className="about-h1">{t("homeP.section-about")}</h1>
           <div className="about-all-div">
             <div className="about-right">
               <img
@@ -425,17 +423,13 @@ const HomeP = () => {
                 className="about-img about-img-left"
               />
               <p className="about-p-right">
-                Ushbu sayt orqali siz o'zingiz xohlagan va vaqtga sayohat qilishingiz mumkin
-                kabi. Sayohatingiz uchun barcha kerakli tadbirlarni amalga oshirishingiz mumkin
-                biz orqali. Hatto viza masalasida ham
+               {t("homeP.section-about-text1")}
               </p>
               <hr className="about-hr" />
             </div>
             <div className="about-left">
               <p className="about-p-left">
-                Shuningdek, VEGO-TRAVEL orqali siz aviakompaniyamiz xizmatlaridan foydalanishingiz mumkin
-                chiptalar, mehmonxonalar, vizalar, ochrat masalalari va anketalar. Biz
-                hurmat ko'rsatishdan xursandman
+              {t("homeP.section-about-text2")}
               </p>
               <img
                 src={bg7}
@@ -448,27 +442,27 @@ const HomeP = () => {
       </section>
       <section className="end-section-contact">
         <div className="container">
-          <h3>Ma'lumotlaringizni to'ldiring va biz siz bilan bog'lanamiz.</h3>
+          <h3>{t("homeP.contact-tele")}</h3>
           <div className="input-contact">
             <input
               type="text"
-              placeholder="Isim"
+              placeholder={t("homeP.contact-ism")}
               onChange={(e) => setFirstName(e.target.value)}
             />
             <input
               type="text"
-              placeholder="Famiya"
+              placeholder={t("homeP.contact-fal")}
               onChange={(e) => setLastName(e.target.value)}
             />
             <input
               type="text"
-              placeholder="Telefon raqam +998..."
+              placeholder={t("homeP.contact-tel")}
               onChange={(e) => setPhoneNumber(e.target.value)}
 
             />
             <input
               type="email"
-              placeholder="Electron pochta"
+              placeholder={t("homeP.contact-email")}
               onChange={(e) => setEmail(e.target.value)}
             />
             <textarea
@@ -476,7 +470,7 @@ const HomeP = () => {
               id="textarea"
               cols="30"
               rows="5"
-              placeholder="Izoh (Ixtiyoriy)"
+              placeholder={t("homeP.contact-com")}
               onChange={(e) => setComment(e.target.value)}
             ></textarea>
             <button
@@ -484,7 +478,7 @@ const HomeP = () => {
               className="contact-butom"
               onClick={sendToTelegram}
             >
-              Yuborish
+              {t("homeP.contact-buttom")}
             </button>
           </div>
         </div>
