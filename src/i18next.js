@@ -4,7 +4,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import uz from "./locales/uz/tranlation.json"
 import ru from "./locales/ru/tranlation.json"
 
-const language = ['ru', 'uz' ];
+const language = ['uz', 'ru'];
 
 i18n
     // detect user language

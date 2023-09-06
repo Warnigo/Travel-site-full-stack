@@ -155,12 +155,14 @@
     background-color: #94BD10;
 }
 
-@media screen and (max-width: 575px) {
+
+
+@media screen and (max-width: 600px) {
     .payment-information {
         display: inline;
     }
 
-    .buttoms-back {
+    .buttoms-back div Link {
         text-align: center;
     }
 
@@ -169,11 +171,15 @@
     }
 
     .user-pay-information {
-        padding: 15px 0 0 ;
+        padding: 15px 0 0;
     }
 
     .payment-pay {
         text-align: center;
     }
-    
-  }
+
+    .buttoms-back div {
+        display: flex;
+    }
+
+}

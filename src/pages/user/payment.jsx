@@ -10,7 +10,7 @@ function Payment() {
     const currentDate = new Date();
 
     const handleClick = (lang) => {
-      i18n.changeLanguage(lang);
+        i18n.changeLanguage(lang);
     }
 
     return (
@@ -18,15 +18,19 @@ function Payment() {
             <div className="container">
                 <div className="all_pay">
                     <div className="buttoms-back">
-                        <Link to={"/"}>
-                            <button>{t("payment.Orqaga")}</button>
-                        </Link>
-                        <Link className="pay-link-lng">
-                            <button className="lng-buttoms" onClick={() => handleClick("uz")}>Uz</button>
-                        </Link>
-                        <Link className="pay-link-lng">
-                            <button className="lng-buttoms" onClick={() => handleClick("ru")}>Ru</button>
-                        </Link>
+                        <div>
+                            <Link to={"/"}>
+                                <button>{t("payment.Orqaga")}</button>
+                            </Link>
+                        </div>
+                        <div>
+                            <Link className="pay-link-lng">
+                                <button className="lng-buttoms" onClick={() => handleClick("uz")}>Uz</button>
+                            </Link>
+                            <Link className="pay-link-lng">
+                                <button className="lng-buttoms" onClick={() => handleClick("ru")}>Ru</button>
+                            </Link>
+                        </div>
                     </div>
                     <div className="pay-data">
                         <p><b>{t("payment.Sharnomasanasi")}: {currentDate.toLocaleDateString()}</b></p>
