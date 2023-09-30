@@ -26,7 +26,6 @@ function Payment() {
     const response = await axios
       .post("register", parsedData, {
         baseURL: ORIGIN,
-        withCredentials: true,
       })
       .catch((err) => {
         console.error("Error: ", err);
