@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { request } from "../../server/server";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 import { Spin } from "antd";
 import "../style/country.css";
 
@@ -11,7 +11,6 @@ const Country = () => {
   const [countryData, setCountryData] = useState(null);
   const [showImgSrc, setShowImgSrc] = useState("");
   const [isLoading, setIsLoading] = useState(true);
-  
 
   useEffect(() => {
     request
@@ -69,10 +68,14 @@ const Country = () => {
             </div>
             <div className="country-description-div">
               <h3>{t("country.Tur haqida")}</h3>
-              <p className="country-description">{countryData.description_uz}</p>
+              <p className="country-description">
+                {countryData[`description_${i18n.language}`]}
+              </p>
               <hr />
               <h3>{t("country.Tafsilotlar")}</h3>
-              <p className="country-description1">{countryData.description1_uz}</p>
+              <p className="country-description1">
+                {countryData[`description1_${i18n.language}`]}
+              </p>
               <hr />
               <div className="country-contact">
                 <p>{t("country.batafsil")}</p>
