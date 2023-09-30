@@ -23,11 +23,19 @@ function Payment() {
     if (isLoading) return -1;
     setLoading(true);
 
-    const response = await axios.post("register", parsedData, {
-      baseURL: ORIGIN,
-    });
+    const response = await axios
+      .post("register", parsedData, {
+        baseURL: ORIGIN,
+        withCredentials: true,
+      })
+      .catch((err) => {
+        console.error("Error: ", err);
+        setLoading(false);
+        return -1;
+      });
 
     if (response.status !== 200) {
+      setLoading(false);
       console.error("Error", response.statusText);
       return -1;
     }
