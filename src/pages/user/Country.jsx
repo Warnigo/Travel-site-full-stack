@@ -6,7 +6,7 @@ import { Spin } from "antd";
 import "../style/country.css";
 
 const Country = () => {
-  const { t, i18n } = useTranslation(); // or const [t, i18n] = useTranslation();
+  const { t, i18n } = useTranslation();
   const { id } = useParams();
   const [countryData, setCountryData] = useState(null);
   const [showImgSrc, setShowImgSrc] = useState("");
@@ -43,7 +43,7 @@ const Country = () => {
       )}
       {countryData ? (
         <div>
-          <h2 className="country-name">{countryData.name_uz}</h2>
+          <h2 className="country-name">{countryData[`name_${i18n.language}`]}</h2>
           <div id="show">
             <img src={showImgSrc} alt="" />
           </div>

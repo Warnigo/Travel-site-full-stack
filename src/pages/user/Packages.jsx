@@ -104,13 +104,13 @@ const Packages = () => {
                   <Link to={`/country/${item.id}/country-about`} key={item.id}>
                     <div className="package-item">
                       <img src={item.img} alt="" />
-                      <h3>{item.name_uz}</h3>
+                      <h3>{item[`name_${i18n.language}`]}</h3>
                       <p>
-                        {item.description_uz.split(" ").slice(0, 10).join(" ")}
-                        {item.description_uz.split(" ").length > 10 ? "..." : ""}
+                        {item[`description_${i18n.language}`].split(" ").slice(0, 10).join(" ")}
+                        {item[`description_${i18n.language}`].split(" ").length > 10 ? "..." : ""}
                       </p>
 
-                      <button className="price-p">{t("homeP.pack-price")} ${item.price}</button>
+                      <button className="price-p">{t("homeP.pack-price")} {item.price} {t("header.sum")}</button>
                     </div>
                   </Link>
                 ))

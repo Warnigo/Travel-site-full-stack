@@ -6,7 +6,8 @@
         "Orqaga": "Orqaga",
         "yevropa": "Yevropa",
         "osio": "Osio",
-        "viza": "Viza"
+        "viza": "Viza",
+        "sum": "so'm"
     },
     "homeP": {
         "header-search": "Dunyoni bir vaqtning o'zida bir sarguzasht bilan kashf eting",
@@ -92,7 +93,7 @@
     },
     "payment": {
         "Orqaga": "Orqaga qaytish",
-        "Sharnomasanasi": "Sharnoma sanasi",
+        "Sharnomasanasi": "Shartnoma sanasi",
         "pay-description": "sayohat uchun sharnoma",
         "Ijrochi": "Ijrochi",
         "accaund": "Account raqami",
