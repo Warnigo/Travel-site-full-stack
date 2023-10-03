@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import "../style/packages.css";
 
 const Packages = () => {
-  const { t, i18n } = useTranslation(); // or const [t, i18n] = useTranslation();
+  const { t, i18n } = useTranslation();
   const [searchText, setSearchText] = useState("");
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);

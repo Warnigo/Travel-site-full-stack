@@ -5,7 +5,7 @@ import { request } from "../../server/server";
 import "../style/offer.css";
 
 function Offer() {
-  const { t, i18n } = useTranslation(); // or const [t, i18n] = useTranslation();
+  const { t, i18n } = useTranslation();
   const [countries, setCountries] = useState([]);
   const [isFormFilled, setIsFormFilled] = useState(false);
   const [price, setPrice] = useState(0)
@@ -20,6 +20,7 @@ function Offer() {
   const [countryPrices, setCountryPrices] = useState({});
   const [departureDate, setDepartureDate] = useState("");
   const [returnDate, setReturnDate] = useState("");
+  const [dataSaved, setDataSaved] = useState(false);
 
   useEffect(() => {
     request
@@ -39,7 +40,8 @@ function Offer() {
 
   useEffect(() => {
     const storedData = localStorage.getItem("formInputs");
-    if (storedData) {
+
+    if (storedData && !dataSaved) {
       const parsedData = JSON.parse(storedData);
       setFirstName(parsedData.firstName);
       setLastName(parsedData.lastName);
@@ -50,8 +52,10 @@ function Offer() {
       setSelectedCountry(parsedData.selectedCountry);
       setDepartureDate(parsedData.departureDate);
       setReturnDate(parsedData.returnDate);
+
+      setDataSaved(true);
     }
-  }, []);
+  }, [dataSaved]);
 
   useEffect(() => {
     const formInputs = {
@@ -67,6 +71,7 @@ function Offer() {
       personCount,
       price
     };
+
     localStorage.setItem("formInputs", JSON.stringify(formInputs));
   }, [
     firstName,
@@ -119,11 +124,9 @@ function Offer() {
   const handlePersonChange = (event) => {
     const personCount = parseInt(event.target.value);
     const travelPrice = parseFloat(countryPrices[selectedCountry]);
-    const totalPrice = travelPrice * personCount
-
-    // e.g: 100.00
-    setPrice(totalPrice.toFixed(2))
-    setPersonCount(personCount)
+    const totalPrice = travelPrice * personCount;
+    setPrice(totalPrice.toFixed(2));
+    setPersonCount(personCount);
   };
 
   const handleCountryChange = (event) => {
@@ -162,7 +165,7 @@ function Offer() {
             <hr />
           </div>
           <p>
-          {t("offer.ketish")}{" "}
+            {t("offer.ketish")}{" "}
             <input
               type="date"
               value={departureDate}
@@ -173,7 +176,7 @@ function Offer() {
             />
           </p>
           <p>
-          {t("offer.Qaytish")}{" "}
+            {t("offer.Qaytish")}{" "}
             <input
               type="date"
               value={returnDate}
@@ -185,7 +188,7 @@ function Offer() {
           </p>
           <hr />
           <p>
-          {t("offer.people")}{" "}
+            {t("offer.people")}{" "}
             <input
               type="number"
               min={"1"}
@@ -261,3 +264,4 @@ function Offer() {
 }
 
 export default Offer;
+

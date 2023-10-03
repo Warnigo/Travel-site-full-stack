@@ -23,7 +23,7 @@ import dp5 from "../../assets/images/other/london.jpg";
 import dp6 from "../../assets/images/istanbull.jpg";
 
 const HomeP = () => {
-  const { t, i18n } = useTranslation(); // or const [t, i18n] = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const [searchText, setSearchText] = useState("");
   const [countries, setCountries] = useState([]);
