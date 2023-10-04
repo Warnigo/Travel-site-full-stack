@@ -105,11 +105,12 @@ const Packages = () => {
                     <div className="package-item">
                       <img src={item.img} alt="" />
                       <h3>{item[`name_${i18n.language}`]}</h3>
-                      <p>
-                        {item[`description_${i18n.language}`].split(" ").slice(0, 10).join(" ")}
-                        {item[`description_${i18n.language}`].split(" ").length > 10 ? "..." : ""}
-                      </p>
-
+                      {item[`description_${i18n.language}`] && (
+                        <p>
+                          {item[`description_${i18n.language}`].split(" ").slice(0, 10).join(" ")}
+                          {item[`description_${i18n.language}`].split(" ").length > 10 ? "..." : ""}
+                        </p>
+                      )}
                       <button className="price-p">{t("homeP.pack-price")} {item.price} {t("header.sum")}</button>
                     </div>
                   </Link>
@@ -132,4 +133,3 @@ const Packages = () => {
 };
 
 export default Packages;
-
